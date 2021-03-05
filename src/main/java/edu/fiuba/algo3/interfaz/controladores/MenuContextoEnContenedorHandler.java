@@ -4,7 +4,6 @@ import edu.fiuba.algo3.interfaz.EjecucionClickDerecho;
 import edu.fiuba.algo3.interfaz.vista.SectorBloquesDisponibles;
 import edu.fiuba.algo3.interfaz.vista.botoneras.BotonAB;
 import edu.fiuba.algo3.interfaz.vista.SectorAlgoritmo;
-import edu.fiuba.algo3.interfaz.vista.botoneras.BotonABRepeticion;
 import edu.fiuba.algo3.interfaz.vista.botoneras.BotonBloque;
 import javafx.event.EventHandler;
 import javafx.scene.input.MouseButton;

@@ -5,7 +5,6 @@ import edu.fiuba.algo3.interfaz.ObservadorSectorAlgoritmo;
 import edu.fiuba.algo3.interfaz.controladores.botones.*;
 import edu.fiuba.algo3.interfaz.vista.botoneras.BotonAB;
 import edu.fiuba.algo3.interfaz.vista.botoneras.BotonABGA;
-import edu.fiuba.algo3.interfaz.vista.botoneras.BotonABRepeticion;
 import edu.fiuba.algo3.interfaz.vista.botoneras.BotonRepeticion;
 import edu.fiuba.algo3.modelo.Personaje;
 import edu.fiuba.algo3.modelo.recursos.DBAlgoritmoPersonalizados;

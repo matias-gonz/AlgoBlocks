@@ -2,8 +2,6 @@ package edu.fiuba.algo3.interfaz;
 
 import edu.fiuba.algo3.interfaz.vista.SectorAlgoritmo;
 import edu.fiuba.algo3.interfaz.vista.SectorBloquesDisponibles;
-import edu.fiuba.algo3.interfaz.vista.botoneras.BotonAB;
-import edu.fiuba.algo3.interfaz.vista.botoneras.BotonABRepeticion;
 import edu.fiuba.algo3.interfaz.vista.botoneras.BotonBloque;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
