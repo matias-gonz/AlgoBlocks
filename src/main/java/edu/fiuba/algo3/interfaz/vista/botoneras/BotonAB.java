@@ -1,7 +1,11 @@
 package edu.fiuba.algo3.interfaz.vista.botoneras;
 
 import edu.fiuba.algo3.ContenedorRepeticion;
+import edu.fiuba.algo3.interfaz.ContenedorBloque;
 import edu.fiuba.algo3.interfaz.controladores.HabilidadDragHandler;
+import edu.fiuba.algo3.interfaz.controladores.MenuContextoEnContenedorHandler;
+import edu.fiuba.algo3.interfaz.controladores.MenuContextoHandler;
+import edu.fiuba.algo3.interfaz.controladores.botones.ControladorBoton;
 import edu.fiuba.algo3.interfaz.vista.SectorAlgoritmo;
 import edu.fiuba.algo3.interfaz.vista.SectorBloquesDisponibles;
 import edu.fiuba.algo3.modelo.bloques.Bloque;
@@ -13,12 +17,18 @@ import javafx.scene.input.TransferMode;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 
-public abstract class BotonAB extends Button {
+public class BotonAB extends Button {
 
     String RUTA_ICONOS = "file:src/main/java/edu/fiuba/algo3/interfaz/imagenes/";
+    String nombre;
+    String icono;
+    ControladorBoton controladorBoton;
 
-    public BotonAB(String nombre_boton, String icono) {
+    public BotonAB(String nombre_boton, String icono, ControladorBoton controlador) {
         super(nombre_boton);
+        this.controladorBoton = controlador;
+        this.nombre = nombre_boton;
+        this.icono = icono;
 
         ImageView icon = new ImageView(RUTA_ICONOS + icono);
         this.setMaxSize(100, 100);
@@ -32,13 +42,36 @@ public abstract class BotonAB extends Button {
         this.setOnDragDetected(new HabilidadDragHandler(this, nombre_boton, TransferMode.ANY, icono));
     }
 
-    public abstract void crearBloqueEnSectorAlgoritmo(SectorAlgoritmo sector, VBox contenedor, SectorBloquesDisponibles sectorBloquesDisponibles);
+    public void crearBloqueEnSectorAlgoritmo(SectorAlgoritmo sector, VBox contenedor, SectorBloquesDisponibles sectorBloquesDisponibles){
+        BotonAB boton = new BotonAB(this.nombre,this.icono,this.controladorBoton);
+        boton.setOnDragDetected(null); // no se mueve
+        boton.setOnMouseClicked( new MenuContextoHandler(boton, sector, contenedor, sectorBloquesDisponibles) );
+        ContenedorBloque contenedorBloque = new ContenedorBloque();
+        contenedorBloque.getChildren().add(boton);
+        contenedor.getChildren().add(contenedorBloque);
+        sectorBloquesDisponibles.notificarObservador(contenedor);
+    }
 
-    public abstract void crearBloqueAdentroDeUnContenedor(SectorAlgoritmo sector, VBox contenedor, SectorBloquesDisponibles sectorBloquesDisponibles, BotonAB creador);
+    public void crearBloqueAdentroDeUnContenedor(SectorAlgoritmo sector, VBox contenedor, SectorBloquesDisponibles sectorBloquesDisponibles, BotonAB creador){
+        BotonAB boton = new BotonAB(this.nombre,this.icono,this.controladorBoton);
+        boton.setOnDragDetected(null); // no se mueve
+        boton.setOnMouseClicked( new MenuContextoEnContenedorHandler(boton, sector, contenedor, sectorBloquesDisponibles, creador) );
 
-    public abstract Bloque obtenerBloque();
+        ContenedorBloque contenedorBloque = new ContenedorBloque();
+        contenedorBloque.getChildren().add(boton);
+        contenedor.getChildren().add(contenedorBloque);
+        creador.notificarObservador(0, 45, 0);
+    }
 
-    public abstract void agregarObservador(ContenedorRepeticion obs);
+    public Bloque obtenerBloque(){
+        return controladorBoton.obtenerAccion();
+    }
 
-    public abstract void notificarObservador(double x, double y, int hijos);
+    public void agregarObservador(ContenedorRepeticion obs){
+
+    }
+
+    public void notificarObservador(double x, double y, int hijos){
+
+    }
 }

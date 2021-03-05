@@ -1,15 +1,15 @@
 package edu.fiuba.algo3;
 
+import edu.fiuba.algo3.interfaz.controladores.botones.ControladorBoton;
 import edu.fiuba.algo3.modelo.bloques.Bloque;
 import edu.fiuba.algo3.modelo.bloques.BloqueRepeticion;
-import javafx.beans.Observable;
 import javafx.collections.ObservableList;
 import javafx.scene.Node;
 import javafx.scene.control.ComboBox;
 
 import java.util.ArrayList;
 
-public class ControladorRepeticicion implements AccionBotones {
+public class ControladorRepeticicion extends ControladorBoton {
 
     ObservableList<Node> hijos;
     public ControladorRepeticicion(ObservableList<Node> obtenerHijos) {

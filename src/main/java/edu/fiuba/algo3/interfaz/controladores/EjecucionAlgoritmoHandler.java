@@ -1,5 +1,6 @@
 package edu.fiuba.algo3.interfaz.controladores;
 
+import edu.fiuba.algo3.interfaz.ContenedorBloque;
 import edu.fiuba.algo3.interfaz.vista.SectorDibujo;
 import edu.fiuba.algo3.interfaz.vista.botoneras.BotonAB;
 import edu.fiuba.algo3.modelo.Personaje;
@@ -51,26 +52,21 @@ public class EjecucionAlgoritmoHandler implements EventHandler<MouseEvent> {
 
         for( int i = 0; i < this.contenedor.getChildren().size(); i++ ) {
             System.out.println(this.contenedor.getChildren().get(i));
-            if( this.contenedor.getChildren().get(i) instanceof HBox )
-            {
-                BotonAB jump = (BotonAB) ((HBox) this.contenedor.getChildren().get(i)).getChildren().get(0); // contiene el bootn repeticion!!
-                bloquesEjecutar.add( jump.obtenerBloque() );
-            }
-            //BotonAB temp = (BotonAB) this.contenedor.getChildren().get(i);
-            //bloquesEjecutar.add( temp.obtenerBloque() );
+            ContenedorBloque contenedorBloque = (ContenedorBloque) this.contenedor.getChildren().get(i);
+            bloquesEjecutar.add( contenedorBloque.obtenerBloque() );
         }
-/*
-        Timeline timeleine;
+
+        Timeline timeline;
 
         AtomicInteger contador = new AtomicInteger();
-        timeleine = new Timeline(new KeyFrame(Duration.seconds(1), (ActionEvent event) -> {
+        timeline = new Timeline(new KeyFrame(Duration.seconds(1), (ActionEvent event) -> {
             Bloque temp = bloquesEjecutar.get(contador.getAndIncrement());
 
             temp.ejecutar(personaje, dibujo);
             sectorDibujo.update();
         }));
 
-        timeleine.setCycleCount(bloquesEjecutar.size());
-        timeleine.play();*/
+        timeline.setCycleCount(bloquesEjecutar.size());
+        timeline.play();
     }
 }

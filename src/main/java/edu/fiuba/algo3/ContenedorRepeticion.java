@@ -50,12 +50,12 @@ public class ContenedorRepeticion implements ObservadorContenedor {
 
         contenedorAEjecutar.getChildren().add(comboBox);
 
-        BotonABRepeticion boton = new BotonABRepeticion();
-        boton.setOnDragDetected( null );
+        //BotonABRepeticion boton = new BotonABRepeticion();
+       // boton.setOnDragDetected( null );
 
-        item.getChildren().addAll(boton, contenedorAEjecutar);
+      //  item.getChildren().addAll(boton, contenedorAEjecutar);
 
-        boton.setOnMouseClicked( new MenuContextoEnContenedorHandler(contenedor, sector, item, sectorBloquesDisponibles, botonABRepeticion) );
+        //boton.setOnMouseClicked( new MenuContextoEnContenedorHandler(contenedor, sector, item, sectorBloquesDisponibles, botonABRepeticion) );
         item.setOnMouseClicked( new MenuContextoEnContenedorHandler(contenedor, sector, item, sectorBloquesDisponibles, botonABRepeticion) );
         item.setAlignment(Pos.CENTER);
         contenedor.getChildren().add(item);
