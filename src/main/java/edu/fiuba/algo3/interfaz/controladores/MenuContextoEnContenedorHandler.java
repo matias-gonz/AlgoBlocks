@@ -5,6 +5,7 @@ import edu.fiuba.algo3.interfaz.vista.SectorBloquesDisponibles;
 import edu.fiuba.algo3.interfaz.vista.botoneras.BotonAB;
 import edu.fiuba.algo3.interfaz.vista.SectorAlgoritmo;
 import edu.fiuba.algo3.interfaz.vista.botoneras.BotonABRepeticion;
+import edu.fiuba.algo3.interfaz.vista.botoneras.BotonBloque;
 import javafx.event.EventHandler;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
@@ -17,10 +18,10 @@ public class MenuContextoEnContenedorHandler extends EjecucionClickDerecho imple
     SectorAlgoritmo sector;
     VBox contenedorMadre;
     HBox contenedor;
-    BotonAB creador;
+    BotonBloque creador;
 
     //
-    BotonAB boton = null;
+    BotonBloque boton = null;
 
     public MenuContextoEnContenedorHandler(VBox contenedor, SectorAlgoritmo sector, HBox item, SectorBloquesDisponibles sectorBloquesDisponibles, BotonAB botonABRepeticion) {
         this.contenedorMadre = contenedor;
@@ -30,7 +31,7 @@ public class MenuContextoEnContenedorHandler extends EjecucionClickDerecho imple
         this.creador = botonABRepeticion;
     }
 
-    public MenuContextoEnContenedorHandler(BotonAB item, SectorAlgoritmo sector, VBox contenedor, SectorBloquesDisponibles sectorBloquesDisponibles, BotonAB creador) {
+    public MenuContextoEnContenedorHandler(BotonBloque item, SectorAlgoritmo sector, VBox contenedor, SectorBloquesDisponibles sectorBloquesDisponibles, BotonBloque creador) {
         this.contenedorMadre = contenedor;
         this.sector = sector;
         this.boton = item;

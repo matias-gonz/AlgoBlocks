@@ -1,9 +1,9 @@
 package edu.fiuba.algo3.interfaz.controladores.botones;
 
 import edu.fiuba.algo3.modelo.bloques.Bloque;
+import javafx.collections.ObservableList;
+import javafx.scene.Node;
 
 public abstract class ControladorBoton {
-    public Bloque obtenerAccion() {
-        return null;
-    }
+    abstract public Bloque obtenerAccion(ObservableList<Node> hijos);
 }

@@ -1,5 +1,6 @@
 package edu.fiuba.algo3;
 
+import edu.fiuba.algo3.interfaz.ContenedorBloque;
 import edu.fiuba.algo3.interfaz.ObservadorContenedor;
 import edu.fiuba.algo3.interfaz.controladores.HabilidadAceptarDragHandler;
 import edu.fiuba.algo3.interfaz.controladores.HabilidadDropHandler;
@@ -8,6 +9,7 @@ import edu.fiuba.algo3.interfaz.vista.SectorAlgoritmo;
 import edu.fiuba.algo3.interfaz.vista.SectorBloquesDisponibles;
 import edu.fiuba.algo3.interfaz.vista.botoneras.BotonAB;
 import edu.fiuba.algo3.interfaz.vista.botoneras.BotonABRepeticion;
+import edu.fiuba.algo3.interfaz.vista.botoneras.BotonRepeticion;
 import javafx.collections.ObservableList;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -20,7 +22,7 @@ import javafx.scene.paint.Color;
 public class ContenedorRepeticion implements ObservadorContenedor {
 
     VBox contenedorAEjecutar = new VBox();
-    HBox item = new HBox();
+    ContenedorBloque item = new ContenedorBloque();
 
     double TAMANIO_X = 115;
     double TAMANIO_Y = 70;
@@ -28,8 +30,10 @@ public class ContenedorRepeticion implements ObservadorContenedor {
     double sizeY = TAMANIO_Y;
     int cantidadHijos = 0;
 
-    public ContenedorRepeticion(BotonAB botonABRepeticion, VBox contenedor, SectorBloquesDisponibles sectorBloquesDisponibles, SectorAlgoritmo sector) {
+    public ContenedorRepeticion(BotonRepeticion botonRepeticion, VBox contenedor, SectorBloquesDisponibles sectorBloquesDisponibles, SectorAlgoritmo sector) {
         //item.setId(nombre);
+
+
         contenedorAEjecutar.setPrefSize( TAMANIO_X, TAMANIO_Y );
         contenedorAEjecutar.setAlignment( Pos.TOP_CENTER );
 
@@ -38,7 +42,7 @@ public class ContenedorRepeticion implements ObservadorContenedor {
         contenedorAEjecutar.setBackground(new Background(new BackgroundFill(Color.HOTPINK, CornerRadii.EMPTY, Insets.EMPTY)));
 
         contenedorAEjecutar.setOnDragOver( new HabilidadAceptarDragHandler(TransferMode.ANY) );
-        contenedorAEjecutar.setOnDragDropped( new HabilidadDropHandler(sector, contenedorAEjecutar, sectorBloquesDisponibles, botonABRepeticion) );
+        contenedorAEjecutar.setOnDragDropped( new HabilidadDropHandler(sector, contenedorAEjecutar, sectorBloquesDisponibles, botonRepeticion) );
 
         ComboBox<Integer> comboBox = new ComboBox<>();
         comboBox.getItems().add(2);
@@ -50,13 +54,15 @@ public class ContenedorRepeticion implements ObservadorContenedor {
 
         contenedorAEjecutar.getChildren().add(comboBox);
 
+        item.getChildren().addAll(botonRepeticion,contenedorAEjecutar);
+
         //BotonABRepeticion boton = new BotonABRepeticion();
        // boton.setOnDragDetected( null );
 
       //  item.getChildren().addAll(boton, contenedorAEjecutar);
 
         //boton.setOnMouseClicked( new MenuContextoEnContenedorHandler(contenedor, sector, item, sectorBloquesDisponibles, botonABRepeticion) );
-        item.setOnMouseClicked( new MenuContextoEnContenedorHandler(contenedor, sector, item, sectorBloquesDisponibles, botonABRepeticion) );
+        //item.setOnMouseClicked( new MenuContextoEnContenedorHandler(contenedor, sector, item, sectorBloquesDisponibles, botonRepeticion) );
         item.setAlignment(Pos.CENTER);
         contenedor.getChildren().add(item);
     }

@@ -4,6 +4,7 @@ import edu.fiuba.algo3.interfaz.vista.SectorAlgoritmo;
 import edu.fiuba.algo3.interfaz.vista.SectorBloquesDisponibles;
 import edu.fiuba.algo3.interfaz.vista.botoneras.BotonAB;
 import edu.fiuba.algo3.interfaz.vista.botoneras.BotonABRepeticion;
+import edu.fiuba.algo3.interfaz.vista.botoneras.BotonBloque;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.control.ContextMenu;
@@ -18,7 +19,7 @@ import java.io.File;
 
 public class EjecucionClickDerecho {
 
-    public void resolucionClickDerecho(HBox contenedor, VBox contenedorMadre, SectorAlgoritmo sector, MouseEvent mouseEvent, SectorBloquesDisponibles sectorBloquesDisponibles, BotonAB creador)
+    public void resolucionClickDerecho(HBox contenedor, VBox contenedorMadre, SectorAlgoritmo sector, MouseEvent mouseEvent, SectorBloquesDisponibles sectorBloquesDisponibles, BotonBloque creador)
     {
         crearMenu(sector, mouseEvent, actionEvent -> {
             contenedor.getChildren().clear();
@@ -46,7 +47,7 @@ public class EjecucionClickDerecho {
         });
     }*/
 
-    public void resolucionClickDerecho(VBox contenedor, SectorAlgoritmo sector, MouseEvent mouseEvent, BotonAB boton, SectorBloquesDisponibles sectorBloquesDisponibles) {
+    public void resolucionClickDerecho(VBox contenedor, SectorAlgoritmo sector, MouseEvent mouseEvent, BotonBloque boton, SectorBloquesDisponibles sectorBloquesDisponibles) {
         crearMenu(sector, mouseEvent, actionEvent -> {
             contenedor.getChildren().remove(boton);
 
@@ -58,7 +59,7 @@ public class EjecucionClickDerecho {
 
     }
 
-    public void resolucionClickDerecho(VBox contenedor, SectorAlgoritmo sector, MouseEvent mouseEvent, BotonAB boton, SectorBloquesDisponibles sectorBloquesDisponibles, BotonAB creador) {
+    public void resolucionClickDerecho(VBox contenedor, SectorAlgoritmo sector, MouseEvent mouseEvent, BotonBloque boton, SectorBloquesDisponibles sectorBloquesDisponibles, BotonBloque creador) {
         crearMenu(sector, mouseEvent, actionEvent -> {
             contenedor.getChildren().remove(boton);
             creador.notificarObservador(0, -45, -1); // lo achicamos .

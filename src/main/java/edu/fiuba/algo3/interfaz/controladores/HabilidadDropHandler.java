@@ -3,6 +3,7 @@ package edu.fiuba.algo3.interfaz.controladores;
 import edu.fiuba.algo3.interfaz.vista.SectorAlgoritmo;
 import edu.fiuba.algo3.interfaz.vista.SectorBloquesDisponibles;
 import edu.fiuba.algo3.interfaz.vista.botoneras.BotonAB;
+import edu.fiuba.algo3.interfaz.vista.botoneras.BotonBloque;
 import javafx.event.EventHandler;
 import javafx.scene.input.DragEvent;
 import javafx.scene.input.Dragboard;
@@ -18,7 +19,7 @@ public class HabilidadDropHandler /*extends CreadorDeTipoDeBloque*/ implements E
     SectorAlgoritmo sector;
     VBox contenedor;
     SectorBloquesDisponibles sectorBloquesDisponibles;
-    BotonAB creador = null;
+    BotonBloque creador = null;
 
     public HabilidadDropHandler(SectorAlgoritmo sectorAlgoritmo, VBox contenedorAlgoritmo, SectorBloquesDisponibles sectorBloquesDisponibles) {
         this.sector = sectorAlgoritmo;
@@ -26,7 +27,7 @@ public class HabilidadDropHandler /*extends CreadorDeTipoDeBloque*/ implements E
         this.sectorBloquesDisponibles = sectorBloquesDisponibles;
     }
 
-    public HabilidadDropHandler(SectorAlgoritmo sector, VBox contenedorAEjecutar, SectorBloquesDisponibles sectorBloquesDisponibles, BotonAB creadorDeTipoDeBloque) {
+    public HabilidadDropHandler(SectorAlgoritmo sector, VBox contenedorAEjecutar, SectorBloquesDisponibles sectorBloquesDisponibles, BotonBloque creadorDeTipoDeBloque) {
         this.sector = sector;
         this.contenedor = contenedorAEjecutar;
         this.sectorBloquesDisponibles = sectorBloquesDisponibles;
@@ -39,12 +40,14 @@ public class HabilidadDropHandler /*extends CreadorDeTipoDeBloque*/ implements E
         boolean success = false;
         if (db.hasString()) {
 
-            BotonAB test = (BotonAB) dragEvent.getGestureSource();
+            BotonBloque test = (BotonBloque) dragEvent.getGestureSource();
 
             if( this.creador != null ) // hace un drop en un contenedor
                 test.crearBloqueAdentroDeUnContenedor(this.sector, this.contenedor, this.sectorBloquesDisponibles, this.creador);
-            else
+            else {
+                System.out.println("Hola");
                 test.crearBloqueEnSectorAlgoritmo(this.sector, this.contenedor, this.sectorBloquesDisponibles);
+            }
             /*JSONArray salida = new JSONArray(db.getString());
 
             String nombre = (String) salida.get(0);

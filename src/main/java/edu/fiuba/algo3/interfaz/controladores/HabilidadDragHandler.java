@@ -1,19 +1,20 @@
 package edu.fiuba.algo3.interfaz.controladores;
 
 import edu.fiuba.algo3.interfaz.vista.botoneras.BotonAB;
+import edu.fiuba.algo3.interfaz.vista.botoneras.BotonBloque;
+import edu.fiuba.algo3.interfaz.vista.botoneras.BotonRepeticion;
 import javafx.event.EventHandler;
 import javafx.scene.input.*;
 import org.json.JSONArray;
-import org.json.JSONObject;
 
 public class HabilidadDragHandler implements EventHandler<MouseEvent> {
 
     String nombre_boton;
-    BotonAB boton;
+    BotonBloque boton;
     TransferMode[] transferencia;
     String icono;
 
-    public HabilidadDragHandler(BotonAB referencia, String nombre_boton, TransferMode[] copyOrMove, String icono) {
+    public HabilidadDragHandler(BotonBloque referencia, String nombre_boton, TransferMode[] copyOrMove, String icono) {
         this.boton = referencia;
         this.nombre_boton = nombre_boton;
         this.transferencia = copyOrMove;
