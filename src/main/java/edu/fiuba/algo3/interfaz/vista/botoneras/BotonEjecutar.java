@@ -17,9 +17,13 @@ public class BotonEjecutar extends Button implements ObservadorSectorAlgoritmo {
 
     public BotonEjecutar(Personaje personaje, SectorDibujo sectorDibujo, Dibujo dibujo) {
         super("Ejecutar algoritmo!");
+        this.setLayoutX(190);
+        this.setLayoutY(400);
         this.dibujo = dibujo;
         this.personaje = personaje;
         this.sectorDibujo = sectorDibujo;
+
+        this.setStyle("-fx-font: 22 arial; -fx-base: #ff9900; -fx-text-fill: #ffffff; ");
         this.setDisable(true);
     }
 
