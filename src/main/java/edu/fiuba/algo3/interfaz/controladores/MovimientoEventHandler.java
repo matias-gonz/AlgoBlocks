@@ -22,7 +22,7 @@ public class MovimientoEventHandler implements EventHandler<ActionEvent> {
     @Override
     public void handle(ActionEvent actionEvent) {
         bloqueMovimiento.ejecutar(personaje, new Dibujo());
-        sectorDibujo.update();
+        //sectorDibujo.update();
     }
 
 }

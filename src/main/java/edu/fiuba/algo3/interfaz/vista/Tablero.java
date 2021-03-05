@@ -3,8 +3,11 @@ package edu.fiuba.algo3.interfaz.vista;
 import edu.fiuba.algo3.modelo.Personaje;
 import edu.fiuba.algo3.modelo.tablero.Dibujo;
 import javafx.geometry.Insets;
+import javafx.scene.layout.Background;
+import javafx.scene.layout.BackgroundFill;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.media.MediaPlayer;
+import javafx.scene.paint.Color;
 
 
 public class Tablero extends BorderPane {
@@ -16,9 +19,11 @@ public class Tablero extends BorderPane {
     public Tablero(MediaPlayer mediaPlayer) {
         inicializar(mediaPlayer);
         posicionarSectores();
-        BorderPane.setMargin(sectorDibujo, new Insets(0,5,300,10));
-        BorderPane.setMargin(sectorBloques, new Insets(0,5,20,10));
-        BorderPane.setMargin(sectorAlgoritmo, new Insets(0,5,20,10));
+        BorderPane.setMargin(sectorDibujo, new Insets(5,5,300,10));
+        BorderPane.setMargin(sectorBloques, new Insets(5,5,20,10));
+        BorderPane.setMargin(sectorAlgoritmo, new Insets(5,5,20,10));
+        BackgroundFill fill = new BackgroundFill(Color.web("#97959E"), null, null);
+        this.setBackground(new Background(fill));
     }
 
     private void posicionarSectores() {
@@ -40,9 +45,6 @@ public class Tablero extends BorderPane {
         // la conexión completa. sectorAlgoritmo tiene acceso a sector bloques y sector bloques tiene acceso a sector dibujo.
         sectorAlgoritmo = new SectorAlgoritmo( sectorBloques );
     }
-
-
-
 
 }
 

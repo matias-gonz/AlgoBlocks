@@ -63,7 +63,6 @@ public class EjecucionAlgoritmoHandler implements EventHandler<MouseEvent> {
             Bloque temp = bloquesEjecutar.get(contador.getAndIncrement());
 
             temp.ejecutar(personaje, dibujo);
-            sectorDibujo.update();
         }));
 
         timeline.setCycleCount(bloquesEjecutar.size());
