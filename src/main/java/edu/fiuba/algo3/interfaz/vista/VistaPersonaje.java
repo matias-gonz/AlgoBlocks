@@ -9,7 +9,7 @@ import javafx.scene.image.ImageView;
 
 public class VistaPersonaje implements ObservadorPersonaje {
 
-    private static final int POS_INICIAL_CENTER = 180;
+    private static final int POS_INICIAL_CENTER = 220;
     private static final int ESCALAR = 40;
     private static final int ESCALAR_Y = 16;
     private static final int ESCALAR_X= 20;

@@ -29,7 +29,7 @@ public class SectorAlgoritmo extends VBox {
 
         this.getChildren().add(contenedorAlgoritmo);
 
-        this.setMinWidth(600);
+        this.setMinWidth(500);
         this.setBackground(new Background(new BackgroundFill(Color.LIGHTGREY, CornerRadii.EMPTY, Insets.EMPTY)));
     }
 }

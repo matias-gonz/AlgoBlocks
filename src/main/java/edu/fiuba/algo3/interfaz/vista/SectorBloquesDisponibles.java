@@ -97,7 +97,7 @@ public class SectorBloquesDisponibles extends VBox implements ObservableSectorAl
         this.setAlignment( Pos.TOP_CENTER );
         this.setSpacing( 2 );
 
-        this.setMaxWidth(300);
+        this.setMinWidth(240);
 
         this.setBackground(new Background(new BackgroundFill(Color.LIGHTGRAY, CornerRadii.EMPTY, Insets.EMPTY)));
     }

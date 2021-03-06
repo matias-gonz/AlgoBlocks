@@ -17,8 +17,8 @@ public class BotonEjecutar extends Button implements ObservadorSectorAlgoritmo {
 
     public BotonEjecutar(Personaje personaje, SectorDibujo sectorDibujo, Dibujo dibujo) {
         super("Ejecutar algoritmo!");
-        this.setLayoutX(190);
-        this.setLayoutY(400);
+        this.setLayoutX(290);
+        this.setLayoutY(510);
         this.dibujo = dibujo;
         this.personaje = personaje;
         this.sectorDibujo = sectorDibujo;
