@@ -46,7 +46,7 @@ public class BotonRepeticion extends BotonBloque {
     public void crearBloqueEnSectorAlgoritmo(SectorAlgoritmo sector, VBox contenedor, SectorBloquesDisponibles sectorBloquesDisponibles) {
         BotonRepeticion boton = new BotonRepeticion(this.nombre, this.icono, this.controladorBoton);
         boton.setOnDragDetected(null); // no se mueve
-        boton.setOnMouseClicked(new MenuContextoHandler(boton, sector, contenedor, sectorBloquesDisponibles));
+        //boton.setOnMouseClicked(new MenuContextoHandler(boton, sector, contenedor, sectorBloquesDisponibles));
         ContenedorRepeticion contenedorRepeticion = new ContenedorRepeticion(boton, contenedor, sectorBloquesDisponibles, sector);
         sectorBloquesDisponibles.notificarObservador(contenedor);
     }
@@ -54,7 +54,7 @@ public class BotonRepeticion extends BotonBloque {
     public void crearBloqueAdentroDeUnContenedor(SectorAlgoritmo sector, VBox contenedor, SectorBloquesDisponibles sectorBloquesDisponibles, BotonBloque creador) {
         BotonRepeticion boton = new BotonRepeticion(this.nombre, this.icono, this.controladorBoton);
         boton.setOnDragDetected(null); // no se mueve
-        boton.setOnMouseClicked(new MenuContextoEnContenedorHandler(boton, sector, contenedor, sectorBloquesDisponibles, creador));
+        //boton.setOnMouseClicked(new MenuContextoEnContenedorHandler(boton, sector, contenedor, sectorBloquesDisponibles, creador));
 
         ContenedorRepeticion contenedorRepeticion = new ContenedorRepeticion(boton, contenedor, sectorBloquesDisponibles, sector);
         creador.notificarObservador(0, 45, 0);

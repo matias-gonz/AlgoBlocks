@@ -2,6 +2,7 @@ package edu.fiuba.algo3.interfaz;
 
 import edu.fiuba.algo3.interfaz.vista.SectorAlgoritmo;
 import edu.fiuba.algo3.interfaz.vista.SectorBloquesDisponibles;
+import edu.fiuba.algo3.interfaz.vista.botoneras.BotonAB;
 import edu.fiuba.algo3.interfaz.vista.botoneras.BotonBloque;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -16,6 +17,40 @@ import javafx.scene.media.MediaPlayer;
 import java.io.File;
 
 public class EjecucionClickDerecho {
+
+    // click derecho en sector algoritmo.
+    public void resolucionClickDerecho(ContenedorBloque contenedorBloque, SectorAlgoritmo sector, MouseEvent mouseEvent, BotonAB boton, SectorBloquesDisponibles sectorBloquesDisponibles, VBox contenedorSectorAlgoritmo)
+    {
+        crearMenu(sector, mouseEvent, actionEvent -> {
+            contenedorSectorAlgoritmo.getChildren().remove(contenedorBloque);// borramos el bloque del contenedor sector algoritmo
+
+            contenedorBloque.getChildren().clear();
+
+            // hay cambios, hay que decirle al sector bloques disponibles
+            System.out.println("resolucionClickDerecho: " + contenedorSectorAlgoritmo.getChildren().size());
+            sectorBloquesDisponibles.notificarObservador(contenedorSectorAlgoritmo);
+
+            this.reproducirSonido();
+        });
+    }
+
+    // resolución click derecho en un contenedor de un botón comun!
+    public void resolucionClickDerecho(BotonAB boton, SectorAlgoritmo sector, ContenedorBloque contenedorBloque, VBox contenedorMadre, SectorBloquesDisponibles sectorBloquesDisponibles, MouseEvent mouseEvent) {
+        crearMenu(sector, mouseEvent, actionEvent -> {
+            contenedorBloque.getChildren().clear();
+
+            double tamanio_x = contenedorMadre.getPrefWidth();
+            double tamanio_y = contenedorMadre.getPrefHeight();
+
+            contenedorMadre.setMaxSize( tamanio_x , tamanio_y - 60 );
+            contenedorMadre.setMinSize( tamanio_x , tamanio_y - 60 );
+            contenedorMadre.setPrefSize( tamanio_x , tamanio_y - 60 );
+
+            sectorBloquesDisponibles.notificarObservador(contenedorMadre); // notificamos los cambios pero acá salta la papa.
+
+            this.reproducirSonido();
+        });
+    }
 
     public void resolucionClickDerecho(HBox contenedor, VBox contenedorMadre, SectorAlgoritmo sector, MouseEvent mouseEvent, SectorBloquesDisponibles sectorBloquesDisponibles, BotonBloque creador)
     {

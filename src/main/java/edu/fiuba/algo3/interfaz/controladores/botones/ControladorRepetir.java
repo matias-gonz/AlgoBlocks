@@ -14,8 +14,6 @@ import java.util.ArrayList;
 
 public class ControladorRepetir extends ControladorBoton {
 
-
-
     @Override
     public Bloque obtenerAccion(ObservableList<Node> hijos) {
         VBox contenedorAEjecutar = (VBox) hijos.get(1);

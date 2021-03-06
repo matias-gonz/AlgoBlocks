@@ -47,24 +47,37 @@ public class BotonAB extends BotonBloque {
     public void crearBloqueEnSectorAlgoritmo(SectorAlgoritmo sector, VBox contenedor, SectorBloquesDisponibles sectorBloquesDisponibles){
         BotonAB boton = new BotonAB(this.nombre,this.icono,this.controladorBoton);
         boton.setOnDragDetected(null); // no se mueve
-        boton.setOnMouseClicked( new MenuContextoHandler(boton, sector, contenedor, sectorBloquesDisponibles) );
         ContenedorBloque contenedorBloque = new ContenedorBloque();
+        boton.setOnMouseClicked( new MenuContextoHandler(boton, sector, contenedorBloque, sectorBloquesDisponibles, contenedor) );
+
         contenedorBloque.getChildren().add(boton);
         contenedorBloque.setAlignment(Pos.CENTER);
         contenedor.getChildren().add(contenedorBloque);
+
         sectorBloquesDisponibles.notificarObservador(contenedor);
     }
 
     public void crearBloqueAdentroDeUnContenedor(SectorAlgoritmo sector, VBox contenedor, SectorBloquesDisponibles sectorBloquesDisponibles, BotonBloque creador){
         BotonAB boton = new BotonAB(this.nombre,this.icono,this.controladorBoton);
         boton.setOnDragDetected(null); // no se mueve
-        boton.setOnMouseClicked( new MenuContextoEnContenedorHandler(boton, sector, contenedor, sectorBloquesDisponibles, creador) );
-
         ContenedorBloque contenedorBloque = new ContenedorBloque();
+
+        //boton.setOnMouseClicked( new MenuContextoEnContenedorHandler(boton, sector, contenedorBloque, sectorBloquesDisponibles, creador) );
+        boton.setOnMouseClicked( new MenuContextoEnContenedorHandler(boton, sector, contenedorBloque, contenedor, sectorBloquesDisponibles) );
+
         contenedorBloque.getChildren().add(boton);
         contenedorBloque.setAlignment(Pos.CENTER);
         contenedor.getChildren().add(contenedorBloque);
-        creador.notificarObservador(0, 45, 0);
+
+        //creador.notificarObservador(0, 45, 0);
+        // acá podemos automaticamente auto-ajustar el tamaño.
+
+        double tamanio_x = contenedor.getPrefWidth();
+        double tamanio_y = contenedor.getPrefHeight();
+
+        contenedor.setMaxSize( tamanio_x , tamanio_y + 60 );
+        contenedor.setMinSize( tamanio_x , tamanio_y + 60 );
+        contenedor.setPrefSize(tamanio_x , tamanio_y + 60 );
     }
 
     public Bloque obtenerBloque(ObservableList<Node> hijos){
