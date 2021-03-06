@@ -8,10 +8,9 @@ Trabajo Práctico número 2 de la materia Algoritmos y Programación III de FIUB
 
 ## Grupo 4 | Turno Noche
 
-* **Integrante 1** - [Claudia Ramos](https://github.com/claudia-ramos)
-* **Integrante 2** - [Matias Gonzalez](https://github.com/matias-gonz)
-* **Integrante 3** - [Luz Calixto](https://github.com/ldiazcto)
-* **Integrante 4** - [Lucas Torres](https://github.com/lucas794)
+* **Integrante 1** - [Matias Gonzalez](https://github.com/matias-gonz)
+* **Integrante 2** - [Luz Calixto](https://github.com/ldiazcto)
+* **Integrante 3** - [Lucas Torres](https://github.com/lucas794)
 
 Corrector: [Joaquin Gomez](https://github.com/joaqogomez)
 
@@ -32,6 +31,8 @@ maven 3.6.0
 ## Ejecutando las pruebas
 
 ```bash
+    git clone https://github.com/lucas794/algo3_proyecto_base_tp2
+    cd algo3_proyecto_base_tp2/
     mvn test
 ```
 
@@ -43,8 +44,11 @@ Este comando crea el reporte de cobertura para CI y el reporte HTML que pueden a
 
 ## Ejecutando la aplicación
 
-Explicación de como ejecutar la aplicación
+```bashbash
+    mvn compile && mvn exec:java -Dexec.mainClass="edu.fiuba.algo3.vista.App"
+```
 
 ## Licencia
 
 Este repositorio está bajo la Licencia MIT
+
