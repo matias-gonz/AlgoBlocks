@@ -5,6 +5,7 @@ import edu.fiuba.algo3.interfaz.ObservadorSectorAlgoritmo;
 import edu.fiuba.algo3.interfaz.controladores.botones.*;
 import edu.fiuba.algo3.interfaz.vista.botoneras.BotonAB;
 import edu.fiuba.algo3.interfaz.vista.botoneras.BotonABGA;
+import edu.fiuba.algo3.interfaz.vista.botoneras.BotonInversion;
 import edu.fiuba.algo3.interfaz.vista.botoneras.BotonRepeticion;
 import edu.fiuba.algo3.modelo.Personaje;
 import edu.fiuba.algo3.modelo.recursos.DBAlgoritmoPersonalizados;
@@ -76,8 +77,9 @@ public class SectorBloquesDisponibles extends VBox implements ObservableSectorAl
         BotonAB botonLevantarLapiz = new BotonAB("Levantar Lapiz","arriba.png",new ControladorLevantarLapiz());
         BotonAB botonBajarLapiz = new BotonAB("Apoyar Lapiz","abajo.png",new ControladorBajarLapiz());
         BotonRepeticion botonRepeticion = new BotonRepeticion("Repetir","repeticion.png",new ControladorRepetir());
+        BotonInversion botonInversion = new BotonInversion("Invertir","personajeUp.png",new ControladorInvertir());
         //BotonABRepeticion botonRepeticion = new BotonABRepeticion();
-        this.getChildren().addAll(botonMoverArriba,botonMoverAbajo,botonMoverDerecha,botonMoverIzquierda,botonBajarLapiz,botonLevantarLapiz,botonRepeticion);
+        this.getChildren().addAll(botonMoverArriba,botonMoverAbajo,botonMoverDerecha,botonMoverIzquierda,botonBajarLapiz,botonLevantarLapiz,botonRepeticion,botonInversion);
 
         botonGuardarAlgoritmo = new BotonABGA("Guardar algoritmo", this );
 
