@@ -16,7 +16,7 @@ public class SectorAlgoritmo extends VBox {
     private ArrayList<ObservadorSectorAlgoritmo> observadores;
 
     public SectorAlgoritmo(SectorBloquesDisponibles sectorBloquesDisponibles){
-        observadores = new ArrayList<>();
+        this.observadores = new ArrayList<>();
         Label text = new Label("Espacio de Trabajo");
         text.setMaxWidth(Double.MAX_VALUE);
         text.setAlignment(Pos.CENTER);

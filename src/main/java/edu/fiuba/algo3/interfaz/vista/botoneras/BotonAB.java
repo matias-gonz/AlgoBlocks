@@ -62,6 +62,7 @@ public class BotonAB extends BotonBloque {
 
         ContenedorBloque contenedorBloque = new ContenedorBloque();
         contenedorBloque.getChildren().add(boton);
+        contenedorBloque.setAlignment(Pos.CENTER);
         contenedor.getChildren().add(contenedorBloque);
         creador.notificarObservador(0, 45, 0);
     }

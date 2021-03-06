@@ -2,6 +2,7 @@ package edu.fiuba.algo3.interfaz.vista;
 
 import edu.fiuba.algo3.interfaz.ObservableSectorAlgoritmo;
 import edu.fiuba.algo3.interfaz.ObservadorSectorAlgoritmo;
+import edu.fiuba.algo3.interfaz.vista.botoneras.BotonClear;
 import edu.fiuba.algo3.interfaz.vista.botoneras.BotonEjecutar;
 import edu.fiuba.algo3.modelo.Personaje;
 import edu.fiuba.algo3.modelo.tablero.Dibujo;
@@ -18,11 +19,13 @@ public class SectorDibujo extends Pane implements ObservableSectorAlgoritmo {
     private Dibujo dibujo;
     private ArrayList<ObservadorSectorAlgoritmo> observador;
     BotonEjecutar boton;
+    BotonClear botonClear;
 
     public SectorDibujo(Personaje personaje, Dibujo dibujo) {
         this.personaje = personaje;
         this.dibujo = dibujo;
         boton = new BotonEjecutar(personaje, this, dibujo);
+        botonClear = new BotonClear();
         this.setPrefSize(500,700);
         this.setMaxHeight(500);
         this.setMinHeight(500);
@@ -31,6 +34,8 @@ public class SectorDibujo extends Pane implements ObservableSectorAlgoritmo {
         observador = new ArrayList<>();
         this.agregarObservador( boton);
         this.getChildren().add( boton );
+        this.agregarObservador( botonClear);
+        this.getChildren().add( botonClear );
     }
 
     public void clean(){

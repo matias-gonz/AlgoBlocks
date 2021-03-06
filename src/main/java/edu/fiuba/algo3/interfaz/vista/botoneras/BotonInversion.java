@@ -53,13 +53,11 @@ public class BotonInversion extends BotonBloque {
     }
 
     public void crearBloqueAdentroDeUnContenedor(SectorAlgoritmo sector, VBox contenedor, SectorBloquesDisponibles sectorBloquesDisponibles, BotonBloque creador) {
-        BotonAB boton = new BotonAB(this.nombre, this.icono, this.controladorBoton);
+        BotonInversion boton = new BotonInversion(this.nombre, this.icono, this.controladorBoton);
         boton.setOnDragDetected(null); // no se mueve
         boton.setOnMouseClicked(new MenuContextoEnContenedorHandler(boton, sector, contenedor, sectorBloquesDisponibles, creador));
 
-        ContenedorBloque contenedorBloque = new ContenedorBloque();
-        contenedorBloque.getChildren().add(boton);
-        contenedor.getChildren().add(contenedorBloque);
+        ContenedorInversion contenedorInversion = new ContenedorInversion(boton, contenedor, sectorBloquesDisponibles, sector);
         creador.notificarObservador(0, 45, 0);
     }
 

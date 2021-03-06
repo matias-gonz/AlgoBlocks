@@ -70,7 +70,7 @@ public class EjecucionClickDerecho {
     }
 
     private void reproducirSonido() {
-        String musicFile = "src/main/java/edu/fiuba/algo3/interfaz/musica/borrar_bloque.mp3";     // For example
+        String musicFile = "src/main/java/edu/fiuba/algo3/interfaz/musica/borrar_bloque.mp3";
         Media musica = new Media(new File(musicFile).toURI().toString());
         MediaPlayer mediaPlayer = new MediaPlayer(musica);
         mediaPlayer.play();

@@ -52,13 +52,11 @@ public class BotonRepeticion extends BotonBloque {
     }
 
     public void crearBloqueAdentroDeUnContenedor(SectorAlgoritmo sector, VBox contenedor, SectorBloquesDisponibles sectorBloquesDisponibles, BotonBloque creador) {
-        BotonAB boton = new BotonAB(this.nombre, this.icono, this.controladorBoton);
+        BotonRepeticion boton = new BotonRepeticion(this.nombre, this.icono, this.controladorBoton);
         boton.setOnDragDetected(null); // no se mueve
         boton.setOnMouseClicked(new MenuContextoEnContenedorHandler(boton, sector, contenedor, sectorBloquesDisponibles, creador));
 
-        ContenedorBloque contenedorBloque = new ContenedorBloque();
-        contenedorBloque.getChildren().add(boton);
-        contenedor.getChildren().add(contenedorBloque);
+        ContenedorRepeticion contenedorRepeticion = new ContenedorRepeticion(boton, contenedor, sectorBloquesDisponibles, sector);
         creador.notificarObservador(0, 45, 0);
     }
 

@@ -78,7 +78,7 @@ public class SectorBloquesDisponibles extends VBox implements ObservableSectorAl
         BotonAB botonBajarLapiz = new BotonAB("Apoyar Lapiz","abajo.png",new ControladorBajarLapiz());
         BotonRepeticion botonRepeticion = new BotonRepeticion("Repetir","repeticion.png",new ControladorRepetir());
         BotonInversion botonInversion = new BotonInversion("Invertir","personajeUp.png",new ControladorInvertir());
-        //BotonABRepeticion botonRepeticion = new BotonABRepeticion();
+
         this.getChildren().addAll(botonMoverArriba,botonMoverAbajo,botonMoverDerecha,botonMoverIzquierda,botonBajarLapiz,botonLevantarLapiz,botonRepeticion,botonInversion);
 
         botonGuardarAlgoritmo = new BotonABGA("Guardar algoritmo", this );
