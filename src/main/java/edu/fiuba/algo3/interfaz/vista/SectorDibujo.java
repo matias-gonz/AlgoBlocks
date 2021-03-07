@@ -25,7 +25,7 @@ public class SectorDibujo extends Pane implements ObservableSectorAlgoritmo {
         this.personaje = personaje;
         this.dibujo = dibujo;
         boton = new BotonEjecutar(personaje, this, dibujo);
-        botonClear = new BotonClear();
+        botonClear = new BotonClear(boton);
         this.setPrefSize(500,700);
         this.setMaxHeight(500);
         this.setMinHeight(500);

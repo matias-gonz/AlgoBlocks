@@ -12,21 +12,24 @@ import javafx.scene.layout.VBox;
 public class BotonClear extends Button implements ObservadorSectorAlgoritmo {
 
     VBox contenedorAlgoritmo;
+    BotonEjecutar botonEjecutar;
 
 
-    public BotonClear() {
+    public BotonClear(BotonEjecutar botonEjecutar) {
         super("Limpiar Bloques");
         this.setLayoutX(290);
         this.setLayoutY(560);
         this.setStyle("-fx-font: 22 arial; -fx-base: #ff9900; -fx-text-fill: #ffffff; ");
         this.setDisable(true);
+        this.botonEjecutar = botonEjecutar;
     }
 
     @Override
     public void cambios(VBox nuevoContenedor) {
         this.contenedorAlgoritmo = nuevoContenedor;
         this.setDisable( this.contenedorAlgoritmo.getChildren().size() == 0 );
-        this.setOnMouseClicked( new ClearHandler( this.contenedorAlgoritmo ) );
+        this.setOnMouseClicked( new ClearHandler( this.contenedorAlgoritmo, this, this.botonEjecutar) );
     }
+
 
 }
