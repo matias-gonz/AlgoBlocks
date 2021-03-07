@@ -30,9 +30,9 @@ public class BotonEjecutar extends Button implements ObservadorSectorAlgoritmo {
     @Override
     public void cambios(VBox nuevoContenedor) {
         this.contenedorAlgoritmo = nuevoContenedor;
-        System.out.println( "Cambios en botón ejecutar!!: " + this.contenedorAlgoritmo.getChildren().size());
+        System.out.println( "Cambios en botón ejecutar!!: " + this.contenedorAlgoritmo.getChildren().size() + this.contenedorAlgoritmo.getChildren());
         this.setDisable( this.contenedorAlgoritmo.getChildren().size() == 0 );
-        this.setOnMouseClicked( new EjecucionAlgoritmoHandler(  this.contenedorAlgoritmo  , personaje, sectorDibujo, dibujo));
+        this.setOnMouseClicked( new EjecucionAlgoritmoHandler( this.contenedorAlgoritmo  , personaje, sectorDibujo, dibujo));
     }
 
 }

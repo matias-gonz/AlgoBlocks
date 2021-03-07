@@ -48,10 +48,10 @@ public class EjecucionAlgoritmoHandler implements EventHandler<MouseEvent> {
 
         ArrayList<Bloque> bloquesEjecutar = new ArrayList<>();
 
-        System.out.println(this.contenedor.getChildren().size());
+        System.out.println("HANDLER EJECUCION ALGORITMO: " + this.contenedor.getChildren().size());
 
         for( int i = 0; i < this.contenedor.getChildren().size(); i++ ) {
-            System.out.println(this.contenedor.getChildren().get(i));
+            System.out.println("ADENTRO DEL BUCLE: " + this.contenedor.getChildren().get(i));
             ContenedorBloque contenedorBloque = (ContenedorBloque) this.contenedor.getChildren().get(i);
             bloquesEjecutar.add( contenedorBloque.obtenerBloque() );
         }

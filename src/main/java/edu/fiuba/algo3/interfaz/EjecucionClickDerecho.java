@@ -42,11 +42,13 @@ public class EjecucionClickDerecho {
             double tamanio_x = contenedorMadre.getPrefWidth();
             double tamanio_y = contenedorMadre.getPrefHeight();
 
-            contenedorMadre.setMaxSize( tamanio_x , tamanio_y - 60 );
+            //contenedorMadre.setMaxSize( tamanio_x , tamanio_y - 60 );
             contenedorMadre.setMinSize( tamanio_x , tamanio_y - 60 );
             contenedorMadre.setPrefSize( tamanio_x , tamanio_y - 60 );
 
-            sectorBloquesDisponibles.notificarObservador(contenedorMadre); // notificamos los cambios pero acá salta la papa.
+            System.out.println("BORRE!");
+            contenedorMadre.getChildren().remove(contenedorBloque);
+            //sectorBloquesDisponibles.notificarObservador(contenedorMadre); // notificamos los cambios pero acá salta la papa.
 
             this.reproducirSonido();
         });
