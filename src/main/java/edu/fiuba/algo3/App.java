@@ -1,8 +1,10 @@
 package edu.fiuba.algo3;
 
+import edu.fiuba.algo3.interfaz.controladores.KeyShortcutHandler;
 import edu.fiuba.algo3.interfaz.vista.Tablero;
 import javafx.application.Application;
 import javafx.scene.Scene;
+import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
@@ -31,6 +33,7 @@ public class App extends Application {
         Tablero tablero = new Tablero(mediaPlayer);
 
         var scene = new Scene(tablero, RES_X, RES_Y);
+        scene.setOnKeyPressed(new KeyShortcutHandler(tablero));
         stage.setResizable(false);
         stage.setTitle( TITULO_VENTANA );
         stage.setScene(scene);

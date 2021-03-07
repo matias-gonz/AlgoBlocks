@@ -54,5 +54,8 @@ public class Tablero extends BorderPane {
         scrollBloques.setHbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
     }
 
+    public void toggleMusic() {
+        this.barraDeMenu.toggleMusic();
+    }
 }
 
