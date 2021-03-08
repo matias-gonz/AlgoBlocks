@@ -1,5 +1,6 @@
 package edu.fiuba.algo3.interfaz;
 
+import edu.fiuba.algo3.MenuContextoParaContenedores;
 import edu.fiuba.algo3.interfaz.controladores.HabilidadAceptarDragHandler;
 import edu.fiuba.algo3.interfaz.controladores.HabilidadDropHandler;
 import edu.fiuba.algo3.interfaz.vista.SectorAlgoritmo;
@@ -49,6 +50,8 @@ public class ContenedorInversion implements ObservadorContenedor {
         //item.setOnMouseClicked( new MenuContextoEnContenedorHandler(contenedor, sector, item, sectorBloquesDisponibles, botonRepeticion) );
         item.setAlignment(Pos.CENTER);
         contenedor.getChildren().add(item);
+
+        botonRepeticion.setOnMouseClicked( new MenuContextoParaContenedores(sector, contenedor, sectorBloquesDisponibles, item) );
     }
 
     @Override

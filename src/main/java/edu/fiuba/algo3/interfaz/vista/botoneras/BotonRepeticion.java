@@ -1,6 +1,7 @@
 package edu.fiuba.algo3.interfaz.vista.botoneras;
 
 import edu.fiuba.algo3.ContenedorRepeticion;
+import edu.fiuba.algo3.MenuContextoParaContenedores;
 import edu.fiuba.algo3.interfaz.ContenedorBloque;
 import edu.fiuba.algo3.interfaz.controladores.HabilidadDragHandler;
 import edu.fiuba.algo3.interfaz.controladores.MenuContextoEnContenedorHandler;
@@ -48,6 +49,7 @@ public class BotonRepeticion extends BotonBloque {
         boton.setOnDragDetected(null); // no se mueve
         //boton.setOnMouseClicked(new MenuContextoHandler(boton, sector, contenedor, sectorBloquesDisponibles));
         ContenedorRepeticion contenedorRepeticion = new ContenedorRepeticion(boton, contenedor, sectorBloquesDisponibles, sector);
+
         sectorBloquesDisponibles.notificarObservador(contenedor);
     }
 
@@ -57,6 +59,13 @@ public class BotonRepeticion extends BotonBloque {
         //boton.setOnMouseClicked(new MenuContextoEnContenedorHandler(boton, sector, contenedor, sectorBloquesDisponibles, creador));
 
         ContenedorRepeticion contenedorRepeticion = new ContenedorRepeticion(boton, contenedor, sectorBloquesDisponibles, sector);
+
+        double tamanio_x = contenedor.getPrefWidth();
+        double tamanio_y = contenedor.getPrefHeight();
+
+        contenedor.setMinSize( tamanio_x + 50, tamanio_y + 45 );
+        contenedor.setPrefSize( tamanio_x + 50, tamanio_y + 45 );
+
         creador.notificarObservador(0, 45, 0);
     }
 

@@ -58,7 +58,14 @@ public class BotonInversion extends BotonBloque {
         //boton.setOnMouseClicked(new MenuContextoEnContenedorHandler(boton, sector, contenedor, sectorBloquesDisponibles, creador));
 
         ContenedorInversion contenedorInversion = new ContenedorInversion(boton, contenedor, sectorBloquesDisponibles, sector);
-        creador.notificarObservador(0, 45, 0);
+
+        // agrandamos donde estaba!
+        double tamanio_x = contenedor.getPrefWidth();
+        double tamanio_y = contenedor.getPrefHeight();
+
+        contenedor.setMinSize( tamanio_x + 50, tamanio_y + 45 );
+        contenedor.setPrefSize( tamanio_x + 50, tamanio_y + 45 );
+        //creador.notificarObservador(0, 45, 0);
     }
 
     public Bloque obtenerBloque(ObservableList<Node> hijos) {

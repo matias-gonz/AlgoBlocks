@@ -1,5 +1,6 @@
 package edu.fiuba.algo3.interfaz;
 
+import edu.fiuba.algo3.ContenedorRepeticion;
 import edu.fiuba.algo3.interfaz.vista.SectorAlgoritmo;
 import edu.fiuba.algo3.interfaz.vista.SectorBloquesDisponibles;
 import edu.fiuba.algo3.interfaz.vista.botoneras.BotonAB;
@@ -49,6 +50,32 @@ public class EjecucionClickDerecho {
             System.out.println("BORRE!");
             contenedorMadre.getChildren().remove(contenedorBloque);
             //sectorBloquesDisponibles.notificarObservador(contenedorMadre); // notificamos los cambios pero acá salta la papa.
+
+            this.reproducirSonido();
+        });
+    }
+
+    // resolución click derecho para contenedores!
+    public void resolucionClickDerecho(VBox contenedorMadre, SectorAlgoritmo sectorAlgoritmo, MouseEvent mouseEvent, SectorBloquesDisponibles sectorBloquesDisponibles, ContenedorBloque contenedorBloqueRepeticion )
+    {
+        crearMenu(sectorAlgoritmo, mouseEvent, actionEvent -> {
+            contenedorBloqueRepeticion.getChildren().clear();
+
+            // no hay cambios de tamaño ya que es un delete del sector algoritmo.
+            System.out.println("Este resolución click derecho llamé");
+            System.out.println(contenedorMadre.getChildren().size());
+
+            if( contenedorMadre.getChildren().size() >= 2 )
+            {
+                double tamanio_x = contenedorMadre.getPrefWidth();
+                double tamanio_y = contenedorMadre.getPrefHeight();
+
+                contenedorMadre.setMinSize( tamanio_x - 50, tamanio_y - 45 );
+                contenedorMadre.setPrefSize( tamanio_x - 50, tamanio_y - 45 );
+            }
+
+            contenedorMadre.getChildren().remove(contenedorBloqueRepeticion);
+            sectorBloquesDisponibles.notificarObservador(contenedorMadre);
 
             this.reproducirSonido();
         });
