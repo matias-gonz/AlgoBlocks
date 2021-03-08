@@ -1,5 +1,6 @@
 package edu.fiuba.algo3.interfaz.controladores;
 
+import edu.fiuba.algo3.interfaz.ContenedorAlgoritmo;
 import edu.fiuba.algo3.interfaz.ContenedorBloque;
 import edu.fiuba.algo3.interfaz.vista.SectorDibujo;
 import edu.fiuba.algo3.interfaz.vista.botoneras.BotonClear;
@@ -33,7 +34,7 @@ public class ClearHandler implements EventHandler<MouseEvent> {
 
     @Override
     public void handle(MouseEvent mouseEvent) {
-        this.contenedor.getChildren().clear();
+        ((ContenedorAlgoritmo) this.contenedor).limpiarContenedor();
         this.botonClear.setDisable(true);
         this.botonEjecutar.setDisable(true);
     }

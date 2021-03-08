@@ -10,6 +10,8 @@ import javafx.scene.layout.VBox;
 
 public class ContenedorAlgoritmo extends VBox {
 
+    SectorBloquesDisponibles sectorBloquesDisponibles;
+
     public ContenedorAlgoritmo(int sizeX, int sizeY, Pos posicion, SectorAlgoritmo sectorAlgoritmo, SectorBloquesDisponibles sectorBloquesDisponibles) {
         super();
         this.setPrefSize( sizeX, sizeY );
@@ -17,7 +19,14 @@ public class ContenedorAlgoritmo extends VBox {
 
         this.setOnDragOver( new HabilidadAceptarDragHandler(TransferMode.ANY) );
 
+        this.sectorBloquesDisponibles = sectorBloquesDisponibles;
+
         this.setOnDragDropped( new HabilidadDropHandler(sectorAlgoritmo, this, sectorBloquesDisponibles) );
     }
 
+    public void limpiarContenedor()
+    {
+        this.getChildren().clear();
+        this.sectorBloquesDisponibles.notificarObservador(this); // cambios
+    }
 }
