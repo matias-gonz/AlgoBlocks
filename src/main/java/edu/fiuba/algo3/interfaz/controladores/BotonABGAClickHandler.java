@@ -52,8 +52,9 @@ public class BotonABGAClickHandler extends Stage implements EventHandler<MouseEv
             // solo de muestra, agregamos un nuevo boton a los bloques disponibles
             // este boton debería tener la info de los hijos de this.contenedorAlgoritmo (es pasada por parámetro).
             // y bueno, el nombre escrito en el texto.
-            BotonGAPersonalizado botonPersonalizado = new BotonGAPersonalizado( texto, this.contenendorAlgoritmo );
+            BotonGAPersonalizado botonPersonalizado = new BotonGAPersonalizado( texto, this.contenendorAlgoritmo, botoneraSectorBloquesDisponibles);
             this.botoneraSectorBloquesDisponibles.getChildren().add(botonPersonalizado);
+            this.botoneraSectorBloquesDisponibles.notificarObservador(this.contenendorAlgoritmo);
 
             // this.contenendorAlgoritmo.getChildren() tiene los Bloques que hay que ejecutarse!
 
