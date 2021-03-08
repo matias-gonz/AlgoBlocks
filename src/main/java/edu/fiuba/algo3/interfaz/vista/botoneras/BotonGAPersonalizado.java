@@ -25,6 +25,7 @@ public class BotonGAPersonalizado extends Button {
         System.out.println("POST CLEAR : " + this.contenedorBloques.size());
 
         this.setOnMouseClicked(e -> {
+            contenedorAlgoritmo.getChildren().clear();
             contenedorAlgoritmo.getChildren().addAll(contenedorBloques);
             this.botonera.notificarObservador(contenedorAlgoritmo);
         });
