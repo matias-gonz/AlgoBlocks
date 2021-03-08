@@ -9,8 +9,8 @@ import javafx.scene.image.ImageView;
 
 public class VistaPersonaje implements Observador {
 
-    private static final int POS_INICIAL_CENTER = 220;
-    private static final int ESCALAR = 40;
+    private static final int POS_INICIAL_CENTER = 215;
+    private static final int ESCALAR = 30;
     private static final int ESCALAR_Y = 16;
     private static final int ESCALAR_X= 20;
     private final ImageView imagenPersonaje;
@@ -26,7 +26,7 @@ public class VistaPersonaje implements Observador {
     private static final String PERSONAJE_ARRIBA = "file:src/main/java/edu/fiuba/algo3/interfaz/imagenes/personajeUp.png";
     private static final String PERSONAJE_ABAJO = "file:src/main/java/edu/fiuba/algo3/interfaz/imagenes/personajeDown.png";
 
-    public VistaPersonaje(ImageView imagenPersonaje, SectorDibujo sectorDibujo, Personaje personaje, Dibujo dibujo){
+    public VistaPersonaje(ImageView imagenPersonaje, SectorDibujo sectorDibujo, Personaje personaje){
         this.personaje = personaje;
         this.imagenPersonaje = imagenPersonaje;
         this.sectorDibujo = sectorDibujo;
@@ -72,13 +72,18 @@ public class VistaPersonaje implements Observador {
     }
 
     public void actualizarDireccion(){
-        if(posicionAnterior.obtenerCoordenadas().get(1) < personaje.obtenerPosicion().get(1)){
+        int anteriorX = posicionAnterior.obtenerCoordenadas().get(0);
+        int anteriorY = posicionAnterior.obtenerCoordenadas().get(1);
+        int actualX = personaje.obtenerPosicion().get(0);
+        int actualY = personaje.obtenerPosicion().get(1);
+
+        if(anteriorY < actualY){
             this.setDireccionActual(VistaPersonaje.Direccion.NORTE);
-        }else if (posicionAnterior.obtenerCoordenadas().get(1) > personaje.obtenerPosicion().get(1)){
+        }else if (anteriorY > actualY){
             this.setDireccionActual(VistaPersonaje.Direccion.SUR);
-        }else if ( posicionAnterior.obtenerCoordenadas().get(0) < personaje.obtenerPosicion().get(0)){
+        }else if ( anteriorX < actualX){
             this.setDireccionActual(VistaPersonaje.Direccion.ESTE);
-        }else if( posicionAnterior.obtenerCoordenadas().get(0) > personaje.obtenerPosicion().get(0)){
+        }else if( anteriorX > actualX){
             this.setDireccionActual(VistaPersonaje.Direccion.OESTE);
         }
 

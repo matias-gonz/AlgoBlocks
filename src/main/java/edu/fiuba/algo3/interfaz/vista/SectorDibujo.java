@@ -41,7 +41,7 @@ public class SectorDibujo extends Pane implements ObservableSectorAlgoritmo {
 
     public void clean(){
         imagenPersonaje = new ImageView( "file:src/main/java/edu/fiuba/algo3/interfaz/imagenes/personajeRight.png");
-        vistaPersonaje = new VistaPersonaje(imagenPersonaje, this, personaje, dibujo);
+        vistaPersonaje = new VistaPersonaje(imagenPersonaje, this, personaje);
         vistaLinea = new VistaLinea(dibujo, this);
         BackgroundImage fondoImagen = new BackgroundImage(new Image("file:src/main/java/edu/fiuba/algo3/interfaz/imagenes/fondoSectorDibujo.png"),
                 BackgroundRepeat.REPEAT,BackgroundRepeat.REPEAT, BackgroundPosition.DEFAULT, BackgroundSize.DEFAULT);

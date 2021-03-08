@@ -16,7 +16,7 @@ public class VistaLinea implements Observador {
     int siguienteLinea;
     Line line;
     SectorDibujo sectorDibujo;
-    List<Line> lineas = new ArrayList<>();
+    List<Line> lineasTrazadas = new ArrayList<>();
 
 
     public VistaLinea(Dibujo dibujo, SectorDibujo sectorDibujo) {
@@ -34,16 +34,17 @@ public class VistaLinea implements Observador {
             List<Integer> PosInicial = dibujo.obtenerSectorDibujado().get(siguienteLinea).obtenerCoordenadasPosicionInicial();
             List<Integer> PosFinal = dibujo.obtenerSectorDibujado().get(siguienteLinea).obtenerCoordenadasPosicionFinal();
 
-            line = new Line(230 + PosInicial.get(0) * ESCALAR, 245 - PosInicial.get(1) * ESCALAR,
-                    230 + PosFinal.get(0) * ESCALAR, 245 - PosFinal.get(1) * ESCALAR);
+            line = new Line(230 + PosInicial.get(0) * ESCALAR, 242 - PosInicial.get(1) * ESCALAR,
+                    230 + PosFinal.get(0) * ESCALAR, 242 - PosFinal.get(1) * ESCALAR);
 
             line.setStrokeWidth(5);
             this.verificarRango(line);
 
             sectorDibujo.getChildren().add(line);
             tamAnterior = dibujo.obtenerSectorDibujado().size();
+            sectorDibujo.getChildren().get(sectorDibujo.getChildren().size()-1).toBack();
             siguienteLinea++;
-            lineas.add(line);
+            lineasTrazadas.add(line);
         }
     }
 
@@ -52,7 +53,7 @@ public class VistaLinea implements Observador {
         tamAnterior = 0;
         siguienteLinea = 0;
 
-        lineas.forEach( lineas -> lineas.setStroke(Color.TRANSPARENT));
+        lineasTrazadas.forEach(lineas -> lineas.setStroke(Color.TRANSPARENT));
     }
 
     public void verificarRango(Line line){ if(excedeRango(line)) line.setStroke(Color.TRANSPARENT); }
