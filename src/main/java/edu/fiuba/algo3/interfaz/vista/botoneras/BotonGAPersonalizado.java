@@ -1,19 +1,25 @@
 package edu.fiuba.algo3.interfaz.vista.botoneras;
 
-import javafx.collections.ObservableList;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.VBox;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class BotonGAPersonalizado extends Button {
 
-    ObservableList<Node> nodosAlgoritmoAEjecutar;
+    private final List<Node> contenedorBloques = new ArrayList<>();
 
-    public BotonGAPersonalizado(TextField texto, ObservableList<Node> children) {
+    public BotonGAPersonalizado(TextField texto,  VBox contenedorAlgoritmo) {
         super(texto.getText());
-        this.nodosAlgoritmoAEjecutar = children;
+        contenedorBloques.addAll(contenedorAlgoritmo.getChildren());
 
-        /* acá es cuando tenes que a este botón darle la chance de arrastrarlo al sector algoritmo de nuevo, y se
-         repite el bucle. Puede extender de Button, o podes hacerlo extender de BotonABGA y agregarle un icono */
+        System.out.println("CREACION : " + this.contenedorBloques.size());
+        contenedorAlgoritmo.getChildren().clear();
+        System.out.println("POST CLEAR : " + this.contenedorBloques.size());
+
+        this.setOnMouseClicked(e -> contenedorAlgoritmo.getChildren().addAll(contenedorBloques));
     }
 }
