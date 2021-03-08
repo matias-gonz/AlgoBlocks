@@ -1,56 +1,57 @@
 package edu.fiuba.algo3.interfaz.vista;
 
+import edu.fiuba.algo3.modelo.Observador;
 import edu.fiuba.algo3.modelo.tablero.Dibujo;
-import edu.fiuba.algo3.modelo.tablero.Posicion;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Line;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class VistaLinea {
+public class VistaLinea implements Observador {
     private static final int ESCALAR = 30;
     Rango rango;
     Dibujo dibujo;
     int tamAnterior = 0;
+    int siguienteLinea;
     Line line;
-    VistaPersonaje vistaPersonaje;
     SectorDibujo sectorDibujo;
     List<Line> lineas = new ArrayList<>();
 
 
-    public VistaLinea(Dibujo dibujo, VistaPersonaje vistaPersonaje, SectorDibujo sectorDibujo) {
+    public VistaLinea(Dibujo dibujo, SectorDibujo sectorDibujo) {
         this.dibujo = dibujo;
         this.rango = new Rango();
-        this.vistaPersonaje = vistaPersonaje;
+        this.dibujo.agregarObservador(this);
         this.sectorDibujo = sectorDibujo;
     }
 
-    public void dibujar() {
+    public void update() {
 
         if (dibujo.obtenerSectorDibujado().size() != 0 && dibujo.obtenerSectorDibujado().size() > tamAnterior) {
 
-            Posicion posInicial = vistaPersonaje.getPosAnterior();
-            Posicion posFinal = vistaPersonaje.getPosActual();
+            siguienteLinea = dibujo.obtenerSectorDibujado().size() - 1;
+            List<Integer> PosInicial = dibujo.obtenerSectorDibujado().get(siguienteLinea).obtenerCoordenadasPosicionInicial();
+            List<Integer> PosFinal = dibujo.obtenerSectorDibujado().get(siguienteLinea).obtenerCoordenadasPosicionFinal();
 
-            line = new Line(ESCALAR + posInicial.obtenerCoordenadas().get(0), ESCALAR + posInicial.obtenerCoordenadas().get(1),
-                    ESCALAR + posFinal.obtenerCoordenadas().get(0), ESCALAR + posFinal.obtenerCoordenadas().get(1));
+            line = new Line(230 + PosInicial.get(0) * ESCALAR, 245 - PosInicial.get(1) * ESCALAR,
+                    230 + PosFinal.get(0) * ESCALAR, 245 - PosFinal.get(1) * ESCALAR);
 
             line.setStrokeWidth(5);
             this.verificarRango(line);
+
             sectorDibujo.getChildren().add(line);
             tamAnterior = dibujo.obtenerSectorDibujado().size();
-
+            siguienteLinea++;
             lineas.add(line);
-        }else if (dibujo.obtenerSectorDibujado().size() == 0){
-            reset();
         }
     }
 
     public void reset(){
         this.line = new Line();
         tamAnterior = 0;
-        dibujo.reset();
+        siguienteLinea = 0;
+
         lineas.forEach( lineas -> lineas.setStroke(Color.TRANSPARENT));
     }
 

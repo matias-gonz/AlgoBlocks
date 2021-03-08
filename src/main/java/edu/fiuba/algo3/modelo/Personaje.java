@@ -11,11 +11,11 @@ import edu.fiuba.algo3.modelo.tablero.movimiento.Movimiento;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Personaje implements ObservablePersonaje{
+public class Personaje implements Observable{
 
     private Lapiz lapiz = new LapizLevantado(); // por defecto, el lapiz arranca arriba.
     private Posicion posicion_personaje = new Posicion(0,0);
-    private ArrayList<ObservadorPersonaje> observador = new ArrayList<>();
+    private ArrayList<Observador> observador = new ArrayList<>();
 
 
     public void ejecutarBloques(List<Bloque> bloques, Dibujo dibujo) {
@@ -48,7 +48,7 @@ public class Personaje implements ObservablePersonaje{
 
 
     @Override
-    public void agregarObservador(ObservadorPersonaje observador) {
+    public void agregarObservador(Observador observador) {
         this.observador.add(observador);
     }
 

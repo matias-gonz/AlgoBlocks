@@ -1,5 +1,5 @@
 package edu.fiuba.algo3.modelo;
 
-public interface ObservadorPersonaje {
+public interface Observador {
     void update();
 }
