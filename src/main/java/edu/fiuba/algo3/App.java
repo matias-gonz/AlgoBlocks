@@ -27,7 +27,7 @@ public class App extends Application {
         Media musica = new Media(new File(musicFile).toURI().toString());
         MediaPlayer mediaPlayer = new MediaPlayer(musica);
         mediaPlayer.setCycleCount(MediaPlayer.INDEFINITE);
-        mediaPlayer.setVolume(0.5);
+        mediaPlayer.setVolume(0.4);
         mediaPlayer.play();
 
         Tablero tablero = new Tablero(mediaPlayer);

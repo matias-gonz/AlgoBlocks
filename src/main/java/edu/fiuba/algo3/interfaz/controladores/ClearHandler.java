@@ -14,8 +14,11 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 import javafx.util.Duration;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.concurrent.atomic.AtomicInteger;
 
@@ -35,6 +38,12 @@ public class ClearHandler implements EventHandler<ActionEvent> {
     @Override
     public void handle(ActionEvent actionEvent) {
         ((ContenedorAlgoritmo) this.contenedor).limpiarContenedor();
+
+        String musicFile = "src/main/java/edu/fiuba/algo3/interfaz/musica/borrar_bloque.mp3";
+        Media musica = new Media(new File(musicFile).toURI().toString());
+        MediaPlayer mediaPlayer = new MediaPlayer(musica);
+        mediaPlayer.play();
+
         this.botonClear.setDisable(true);
         this.botonEjecutar.setDisable(true);
     }
