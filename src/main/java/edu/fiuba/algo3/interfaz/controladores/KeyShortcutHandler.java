@@ -18,6 +18,9 @@ public class KeyShortcutHandler implements EventHandler<KeyEvent> {
             case M:
                 tablero.toggleMusic();
                 break;
+            case E:
+                tablero.ejecutarBloques();
+                break;
         }
     }
 }

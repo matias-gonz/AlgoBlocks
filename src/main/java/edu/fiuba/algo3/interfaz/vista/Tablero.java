@@ -57,5 +57,9 @@ public class Tablero extends BorderPane {
     public void toggleMusic() {
         this.barraDeMenu.toggleMusic();
     }
+
+    public void ejecutarBloques() {
+        this.sectorDibujo.ejecutarBloques();
+    }
 }
 

@@ -27,7 +27,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
 
-public class EjecucionAlgoritmoHandler implements EventHandler<MouseEvent> {
+public class EjecucionAlgoritmoHandler implements EventHandler<ActionEvent> {
 
     VBox contenedor;
     Personaje personaje;
@@ -43,7 +43,7 @@ public class EjecucionAlgoritmoHandler implements EventHandler<MouseEvent> {
 
 
     @Override
-    public void handle(MouseEvent mouseEvent) {
+    public void handle(ActionEvent actionEvent) {
         sectorDibujo.reset();
 
         ArrayList<Bloque> bloquesEjecutar = new ArrayList<>();

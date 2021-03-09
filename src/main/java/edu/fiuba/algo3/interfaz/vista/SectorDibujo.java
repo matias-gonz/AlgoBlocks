@@ -65,4 +65,8 @@ public class SectorDibujo extends Pane implements ObservableSectorAlgoritmo {
     public void notificarObservador(VBox nuevoContenedor) {
         this.observador.forEach( obs -> obs.cambios(nuevoContenedor) );
     }
+
+    public void ejecutarBloques() {
+        ((BotonEjecutar) this.getChildren().get(1)).fire();
+    }
 }
