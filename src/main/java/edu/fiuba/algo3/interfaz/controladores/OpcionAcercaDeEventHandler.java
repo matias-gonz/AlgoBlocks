@@ -3,6 +3,7 @@ package edu.fiuba.algo3.interfaz.controladores;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.control.Alert;
+import javafx.scene.image.Image;
 
 public class OpcionAcercaDeEventHandler implements EventHandler<ActionEvent> {
 
@@ -14,7 +15,7 @@ public class OpcionAcercaDeEventHandler implements EventHandler<ActionEvent> {
         String mensaje = "TP2 Desarrollado por:  \n" +
                 " ☻ Luz M. Diaz\n" +
                 " ☻ Lucas Gabriel Torres \n"+
-                " ☻ Matias Gonzalez";
+                " ☻ Matias Ignacio Gonzalez";
         alert.setContentText(mensaje);
         alert.show();
     }
