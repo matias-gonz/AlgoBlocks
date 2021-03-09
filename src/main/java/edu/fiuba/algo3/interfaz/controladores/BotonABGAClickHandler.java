@@ -5,13 +5,16 @@ import edu.fiuba.algo3.interfaz.vista.botoneras.BotonGAPersonalizado;
 import javafx.event.EventHandler;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 public class BotonABGAClickHandler extends Stage implements EventHandler<MouseEvent> {
 
@@ -38,18 +41,27 @@ public class BotonABGAClickHandler extends Stage implements EventHandler<MouseEv
 
         menu.getChildren().addAll(opciones);
 
-        Scene escena = new Scene(menu, 375, 80);
+        Scene escena = new Scene(menu, 390, 80);
 
-        this.setTitle("Guardar algoritmo");
+        this.resizableProperty().set(false);
 
-        this.setScene(escena);
+        cancelar.setOnAction( e-> {
+            this.hide();
+            this.requestFocus();
+        });
 
-        this.show();
+        aceptar.setOnAction( e-> {
 
-        cancelar.setOnMouseClicked( e-> this.hide() );
-        aceptar.setOnMouseClicked( e-> {
+            if( texto.getText().trim().equals("") )
+            {
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("[ALGOBLOCKS] Alerta!");
+                alert.setHeaderText("ERROR");
+                alert.setContentText("NOMBRE ERRONEO!");
+                alert.showAndWait();
+                return;
+            }
 
-            // solo de muestra, agregamos un nuevo boton a los bloques disponibles
             // este boton debería tener la info de los hijos de this.contenedorAlgoritmo (es pasada por parámetro).
             // y bueno, el nombre escrito en el texto.
             BotonGAPersonalizado botonPersonalizado = new BotonGAPersonalizado( texto, this.contenendorAlgoritmo, botoneraSectorBloquesDisponibles);
@@ -60,6 +72,27 @@ public class BotonABGAClickHandler extends Stage implements EventHandler<MouseEv
 
             this.hide();
         });
+
+        this.setTitle("Guardar algoritmo");
+
+        escena.setOnKeyPressed( e ->
+        {
+            switch( e.getCode() )
+            {
+                case ENTER:
+                    aceptar.fire();
+                    break;
+
+                case ESCAPE:
+                    cancelar.fire();
+                    break;
+
+            }
+        });
+
+        this.setScene(escena);
+
+        this.show();
     }
 
 }

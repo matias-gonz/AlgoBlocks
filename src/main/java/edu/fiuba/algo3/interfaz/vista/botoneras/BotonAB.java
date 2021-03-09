@@ -40,7 +40,7 @@ public class BotonAB extends BotonBloque {
                 BorderStrokeStyle.DASHED, CornerRadii.EMPTY, BorderWidths.DEFAULT)));
         this.setGraphic(icon);
 
-        this.setOnDragDetected(new HabilidadDragHandler(this, nombre_boton, TransferMode.ANY, icono));
+        this.setOnDragDetected(new HabilidadDragHandler(this, TransferMode.ANY));
     }
 
     @Override

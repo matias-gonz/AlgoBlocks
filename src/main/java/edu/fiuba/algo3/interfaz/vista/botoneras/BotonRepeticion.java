@@ -1,11 +1,7 @@
 package edu.fiuba.algo3.interfaz.vista.botoneras;
 
 import edu.fiuba.algo3.ContenedorRepeticion;
-import edu.fiuba.algo3.MenuContextoParaContenedores;
-import edu.fiuba.algo3.interfaz.ContenedorBloque;
 import edu.fiuba.algo3.interfaz.controladores.HabilidadDragHandler;
-import edu.fiuba.algo3.interfaz.controladores.MenuContextoEnContenedorHandler;
-import edu.fiuba.algo3.interfaz.controladores.MenuContextoHandler;
 import edu.fiuba.algo3.interfaz.controladores.botones.ControladorBoton;
 import edu.fiuba.algo3.interfaz.vista.SectorAlgoritmo;
 import edu.fiuba.algo3.interfaz.vista.SectorBloquesDisponibles;
@@ -40,7 +36,7 @@ public class BotonRepeticion extends BotonBloque {
                 BorderStrokeStyle.DASHED, CornerRadii.EMPTY, BorderWidths.DEFAULT)));
         this.setGraphic(icon);
 
-        this.setOnDragDetected(new HabilidadDragHandler(this, nombre_boton, TransferMode.ANY, icono));
+        this.setOnDragDetected(new HabilidadDragHandler(this, TransferMode.ANY));
     }
 
     @Override
