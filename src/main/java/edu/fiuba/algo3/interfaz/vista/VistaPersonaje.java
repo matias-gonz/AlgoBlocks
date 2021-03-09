@@ -9,10 +9,9 @@ import javafx.scene.image.ImageView;
 
 public class VistaPersonaje implements Observador {
 
-    private static final int POS_INICIAL_CENTER = 215;
+    private static final int POS_INICIAL_CENTER_X = 228;
+    private static final int POS_INICIAL_CENTER_Y = 215;
     private static final int ESCALAR = 30;
-    private static final int ESCALAR_Y = 16;
-    private static final int ESCALAR_X= 20;
     private final ImageView imagenPersonaje;
     private final Personaje personaje;
     public enum Direccion{ NORTE, SUR, ESTE, OESTE}
@@ -32,8 +31,8 @@ public class VistaPersonaje implements Observador {
         this.sectorDibujo = sectorDibujo;
         this.rango = new Rango();
         this.setDireccionActual(VistaPersonaje.Direccion.ESTE);
-        imagenPersonaje.setX(POS_INICIAL_CENTER);
-        imagenPersonaje.setY(POS_INICIAL_CENTER);
+        imagenPersonaje.setX(POS_INICIAL_CENTER_X);
+        imagenPersonaje.setY(POS_INICIAL_CENTER_Y);
         imagenPersonaje.setFitHeight(35);
         imagenPersonaje.setFitWidth(30);
         this.personaje.agregarObservador(this);
@@ -61,8 +60,8 @@ public class VistaPersonaje implements Observador {
     public void update(){
         this.girarPersonaje();
 
-        imagenPersonaje.setY(POS_INICIAL_CENTER - (personaje.obtenerPosicion().get(1) * ESCALAR));
-        imagenPersonaje.setX(POS_INICIAL_CENTER + (personaje.obtenerPosicion().get(0) * ESCALAR));
+        imagenPersonaje.setY(POS_INICIAL_CENTER_Y - (personaje.obtenerPosicion().get(1) * ESCALAR));
+        imagenPersonaje.setX(POS_INICIAL_CENTER_X + (personaje.obtenerPosicion().get(0) * ESCALAR));
 
         verificarFueraDeRango();
     }
@@ -96,9 +95,10 @@ public class VistaPersonaje implements Observador {
     }
 
     public boolean excedeRango(){
-        rango.setAltura(sectorDibujo.getHeight());
-        rango.setAncho(sectorDibujo.getWidth());
-        return (rango.esExcedido( imagenPersonaje.getX() + ESCALAR_X, imagenPersonaje.getY()+ ESCALAR_Y));
+        rango.setAltura(sectorDibujo.getHeight()-16);
+        rango.setAncho(sectorDibujo.getWidth()-20);
+
+        return (rango.esExcedido( imagenPersonaje.getX(), imagenPersonaje.getY()));
     }
 
 }
