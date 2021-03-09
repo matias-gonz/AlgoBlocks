@@ -61,5 +61,9 @@ public class Tablero extends BorderPane {
     public void ejecutarBloques() {
         this.sectorDibujo.ejecutarBloques();
     }
+
+    public void clearBloques() {
+        this.sectorDibujo.clearBloques();
+    }
 }
 

@@ -69,4 +69,8 @@ public class SectorDibujo extends Pane implements ObservableSectorAlgoritmo {
     public void ejecutarBloques() {
         ((BotonEjecutar) this.getChildren().get(1)).fire();
     }
+
+    public void clearBloques() {
+        ((BotonClear) this.getChildren().get(2)).fire();
+    }
 }

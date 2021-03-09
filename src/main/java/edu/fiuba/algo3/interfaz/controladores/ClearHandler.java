@@ -19,7 +19,7 @@ import javafx.util.Duration;
 import java.util.ArrayList;
 import java.util.concurrent.atomic.AtomicInteger;
 
-public class ClearHandler implements EventHandler<MouseEvent> {
+public class ClearHandler implements EventHandler<ActionEvent> {
 
     VBox contenedor;
     BotonClear botonClear;
@@ -33,7 +33,7 @@ public class ClearHandler implements EventHandler<MouseEvent> {
 
 
     @Override
-    public void handle(MouseEvent mouseEvent) {
+    public void handle(ActionEvent actionEvent) {
         ((ContenedorAlgoritmo) this.contenedor).limpiarContenedor();
         this.botonClear.setDisable(true);
         this.botonEjecutar.setDisable(true);

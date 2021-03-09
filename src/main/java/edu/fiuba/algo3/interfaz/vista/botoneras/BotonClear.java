@@ -29,7 +29,7 @@ public class BotonClear extends Button implements ObservadorSectorAlgoritmo {
     public void cambios(VBox nuevoContenedor) {
         this.contenedorAlgoritmo = nuevoContenedor;
         this.setDisable( this.contenedorAlgoritmo.getChildren().size() == 0 );
-        this.setOnMouseClicked( new ClearHandler( this.contenedorAlgoritmo, this, this.botonEjecutar) );
+        this.setOnAction( new ClearHandler( this.contenedorAlgoritmo, this, this.botonEjecutar) );
     }
 
 
