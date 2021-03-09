@@ -2,9 +2,12 @@ package edu.fiuba.algo3.interfaz.vista;
 
 import edu.fiuba.algo3.modelo.Observador;
 import edu.fiuba.algo3.modelo.tablero.Dibujo;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Line;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -34,8 +37,8 @@ public class VistaLinea implements Observador {
             List<Integer> PosInicial = dibujo.obtenerSectorDibujado().get(siguienteLinea).obtenerCoordenadasPosicionInicial();
             List<Integer> PosFinal = dibujo.obtenerSectorDibujado().get(siguienteLinea).obtenerCoordenadasPosicionFinal();
 
-            line = new Line(230 + PosInicial.get(0) * ESCALAR, 242 - PosInicial.get(1) * ESCALAR,
-                    230 + PosFinal.get(0) * ESCALAR, 242 - PosFinal.get(1) * ESCALAR);
+            line = new Line(243 + PosInicial.get(0) * ESCALAR, 242 - PosInicial.get(1) * ESCALAR,
+                    243 + PosFinal.get(0) * ESCALAR, 242 - PosFinal.get(1) * ESCALAR);
 
             line.setStrokeWidth(5);
             this.verificarRango(line);
@@ -45,6 +48,7 @@ public class VistaLinea implements Observador {
             sectorDibujo.getChildren().get(sectorDibujo.getChildren().size()-1).toBack();
             siguienteLinea++;
             lineasTrazadas.add(line);
+            reproducirSonido();
         }
     }
 
@@ -61,7 +65,16 @@ public class VistaLinea implements Observador {
     public boolean excedeRango(Line line){
         rango.setAltura(sectorDibujo.getHeight());
         rango.setAncho(sectorDibujo.getWidth());
-        return (rango.esExcedido( line.getEndX(), line.getEndY()));
+
+        return (rango.esExcedido( line.getEndX(), line.getEndY())
+                || rango.esExcedido( line.getStartX(), line.getStartY()));
+    }
+
+    public void reproducirSonido(){
+        String musicFile = "src/main/java/edu/fiuba/algo3/interfaz/musica/dibujando.mp3";
+        Media musica = new Media(new File(musicFile).toURI().toString());
+        MediaPlayer mediaPlayer = new MediaPlayer(musica);
+        mediaPlayer.play();
     }
 }
 
