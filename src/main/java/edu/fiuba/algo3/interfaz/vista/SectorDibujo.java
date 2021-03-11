@@ -20,12 +20,17 @@ public class SectorDibujo extends Pane implements ObservableSectorAlgoritmo {
     private final ArrayList<ObservadorSectorAlgoritmo> observador;
     BotonEjecutar boton;
     BotonClear botonClear;
+    SliderVelocidad slider;
 
     public SectorDibujo(Personaje personaje, Dibujo dibujo) {
         this.personaje = personaje;
         this.dibujo = dibujo;
-        boton = new BotonEjecutar(personaje, this, dibujo);
+        slider = new SliderVelocidad();
+        boton = new BotonEjecutar(personaje, this, dibujo,slider);
         botonClear = new BotonClear(boton);
+
+
+
         this.setPrefSize(486,700);
         this.setMaxHeight(500);
         this.setMinHeight(515);
@@ -36,6 +41,7 @@ public class SectorDibujo extends Pane implements ObservableSectorAlgoritmo {
         this.getChildren().add( boton );
         this.agregarObservador( botonClear);
         this.getChildren().add( botonClear );
+        this.getChildren().add( slider );
     }
 
     public void clean(){

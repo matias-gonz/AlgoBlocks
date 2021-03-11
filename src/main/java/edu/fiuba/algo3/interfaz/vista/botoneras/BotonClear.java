@@ -14,7 +14,7 @@ public class BotonClear extends Button implements ObservadorSectorAlgoritmo {
     public BotonClear(BotonEjecutar botonEjecutar) {
         super("Limpiar Bloques");
         this.setLayoutX(275);
-        this.setLayoutY(570);
+        this.setLayoutY(590);
         this.setPrefWidth(212);
         this.setStyle("-fx-font: 22 arial; -fx-base: #ff9900; -fx-text-fill: #ffffff; ");
         this.setDisable(true);

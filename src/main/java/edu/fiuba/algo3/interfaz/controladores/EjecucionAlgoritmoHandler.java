@@ -1,5 +1,6 @@
 package edu.fiuba.algo3.interfaz.controladores;
 
+import edu.fiuba.algo3.interfaz.vista.SliderVelocidad;
 import edu.fiuba.algo3.interfaz.vista.contenedores.ContenedorBloque;
 import edu.fiuba.algo3.interfaz.vista.SectorDibujo;
 import edu.fiuba.algo3.modelo.Personaje;
@@ -21,16 +22,19 @@ public class EjecucionAlgoritmoHandler implements EventHandler<ActionEvent> {
     Personaje personaje;
     SectorDibujo sectorDibujo;
     Dibujo dibujo;
+    SliderVelocidad sliderVelocidad;
 
-    public EjecucionAlgoritmoHandler(VBox contenedorAlgoritmo, Personaje personaje, SectorDibujo sectorDibujo, Dibujo dibujo) {
+    public EjecucionAlgoritmoHandler(VBox contenedorAlgoritmo, Personaje personaje, SectorDibujo sectorDibujo, Dibujo dibujo, SliderVelocidad velocidad) {
         this.contenedor = contenedorAlgoritmo;
         this.personaje = personaje;
         this.sectorDibujo = sectorDibujo;
         this.dibujo = dibujo;
+        this.sliderVelocidad = velocidad;
     }
 
     @Override
     public void handle(ActionEvent actionEvent) {
+
         sectorDibujo.reset();
 
         ArrayList<Bloque> bloquesEjecutar = new ArrayList<>();
@@ -43,7 +47,7 @@ public class EjecucionAlgoritmoHandler implements EventHandler<ActionEvent> {
         Timeline timeline;
 
         AtomicInteger contador = new AtomicInteger();
-        timeline = new Timeline(new KeyFrame(Duration.seconds(0.8), (ActionEvent event) -> {
+        timeline = new Timeline(new KeyFrame(Duration.seconds(sliderVelocidad.obtenerVelocidad()), (ActionEvent event) -> {
             Bloque temp = bloquesEjecutar.get(contador.getAndIncrement());
 
             temp.ejecutar(personaje, dibujo);
