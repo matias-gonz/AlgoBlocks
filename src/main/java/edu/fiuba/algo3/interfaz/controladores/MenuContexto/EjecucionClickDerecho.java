@@ -3,7 +3,6 @@ package edu.fiuba.algo3.interfaz.controladores.MenuContexto;
 import edu.fiuba.algo3.interfaz.vista.contenedores.ContenedorBloque;
 import edu.fiuba.algo3.interfaz.vista.SectorAlgoritmo;
 import edu.fiuba.algo3.interfaz.vista.SectorBloquesDisponibles;
-import edu.fiuba.algo3.interfaz.vista.botoneras.BotonAB;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.control.ContextMenu;
@@ -18,7 +17,7 @@ import java.io.File;
 public class EjecucionClickDerecho {
 
     // click derecho en sector algoritmo.
-    public void resolucionClickDerecho(ContenedorBloque contenedorBloque, SectorAlgoritmo sector, MouseEvent mouseEvent, BotonAB boton, SectorBloquesDisponibles sectorBloquesDisponibles, VBox contenedorSectorAlgoritmo)
+    public void resolucionClickDerecho(ContenedorBloque contenedorBloque, SectorAlgoritmo sector, MouseEvent mouseEvent, SectorBloquesDisponibles sectorBloquesDisponibles, VBox contenedorSectorAlgoritmo)
     {
         crearMenu(sector, mouseEvent, actionEvent -> {
             contenedorSectorAlgoritmo.getChildren().remove(contenedorBloque);// borramos el bloque del contenedor sector algoritmo
@@ -33,7 +32,7 @@ public class EjecucionClickDerecho {
     }
 
     // resolución click derecho en un contenedor de un botón comun!
-    public void resolucionClickDerecho(BotonAB boton, SectorAlgoritmo sector, ContenedorBloque contenedorBloque, VBox contenedorMadre, SectorBloquesDisponibles sectorBloquesDisponibles, MouseEvent mouseEvent) {
+    public void resolucionClickDerecho(SectorAlgoritmo sector, ContenedorBloque contenedorBloque, VBox contenedorMadre, MouseEvent mouseEvent) {
         crearMenu(sector, mouseEvent, actionEvent -> {
             contenedorBloque.getChildren().clear();
 

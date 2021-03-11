@@ -46,7 +46,7 @@ public class BotonAB extends BotonBloque {
         BotonAB boton = new BotonAB(this.nombre,this.icono,this.controladorBoton);
         boton.setOnDragDetected(null); // no se mueve
         ContenedorBloque contenedorBloque = new ContenedorBloque();
-        boton.setOnMouseClicked( new MenuContextoHandler(boton, sector, contenedorBloque, sectorBloquesDisponibles, contenedor) );
+        boton.setOnMouseClicked( new MenuContextoHandler(sector, contenedorBloque, sectorBloquesDisponibles, contenedor) );
 
         contenedorBloque.getChildren().add(boton);
         contenedorBloque.setAlignment(Pos.CENTER);
@@ -60,7 +60,7 @@ public class BotonAB extends BotonBloque {
         boton.setOnDragDetected(null); // no se mueve
         ContenedorBloque contenedorBloque = new ContenedorBloque();
 
-        boton.setOnMouseClicked( new MenuContextoEnContenedorHandler(boton, sector, contenedorBloque, contenedor, sectorBloquesDisponibles) );
+        boton.setOnMouseClicked( new MenuContextoEnContenedorHandler(sector, contenedorBloque, contenedor) );
 
         contenedorBloque.getChildren().add(boton);
         contenedorBloque.setAlignment(Pos.CENTER);
