@@ -1,9 +1,9 @@
 package edu.fiuba.algo3.interfaz.vista;
 
-import edu.fiuba.algo3.interfaz.controladores.OpcionDesactivarMusicaHandler;
-import edu.fiuba.algo3.interfaz.controladores.OpcionAcercaDeEventHandler;
-import edu.fiuba.algo3.interfaz.controladores.OpcionInstruccionesEventHanlder;
-import edu.fiuba.algo3.interfaz.controladores.OpcionSalirEventHandler;
+import edu.fiuba.algo3.interfaz.controladores.menuOpciones.OpcionDesactivarMusicaHandler;
+import edu.fiuba.algo3.interfaz.controladores.menuOpciones.OpcionAcercaDeEventHandler;
+import edu.fiuba.algo3.interfaz.controladores.menuOpciones.OpcionInstruccionesEventHanlder;
+import edu.fiuba.algo3.interfaz.controladores.menuOpciones.OpcionSalirEventHandler;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
