@@ -57,7 +57,7 @@ public class EjecucionClickDerecho {
         crearMenu(sectorAlgoritmo, mouseEvent, actionEvent -> {
             contenedorBloqueRepeticion.getChildren().clear();
 
-            if( contenedorMadre.getChildren().size() >= 2 && (contenedorMadre.getId().equals("Sector")))
+            if( contenedorMadre.getChildren().size() >= 2 && !(contenedorMadre.getId().equals("Sector")))
             {
                 double tamanio_x = contenedorMadre.getPrefWidth();
                 double tamanio_y = contenedorMadre.getPrefHeight();
