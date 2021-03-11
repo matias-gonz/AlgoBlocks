@@ -4,8 +4,8 @@ import edu.fiuba.algo3.modelo.lapiz.Lapiz;
 import edu.fiuba.algo3.modelo.lapiz.LapizLevantado;
 import edu.fiuba.algo3.modelo.tablero.Dibujo;
 import edu.fiuba.algo3.modelo.tablero.Posicion;
-import edu.fiuba.algo3.modelo.tablero.movimiento.MovimientoArriba;
-import edu.fiuba.algo3.modelo.tablero.movimiento.MovimientoDerecha;
+import edu.fiuba.algo3.modelo.movimiento.MovimientoArriba;
+import edu.fiuba.algo3.modelo.movimiento.MovimientoDerecha;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

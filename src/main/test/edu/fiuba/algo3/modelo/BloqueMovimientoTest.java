@@ -2,10 +2,10 @@ package edu.fiuba.algo3.modelo;
 
 import edu.fiuba.algo3.modelo.bloques.BloqueMovimiento;
 import edu.fiuba.algo3.modelo.tablero.Dibujo;
-import edu.fiuba.algo3.modelo.tablero.movimiento.MovimientoAbajo;
-import edu.fiuba.algo3.modelo.tablero.movimiento.MovimientoArriba;
-import edu.fiuba.algo3.modelo.tablero.movimiento.MovimientoDerecha;
-import edu.fiuba.algo3.modelo.tablero.movimiento.MovimientoIzquierda;
+import edu.fiuba.algo3.modelo.movimiento.MovimientoAbajo;
+import edu.fiuba.algo3.modelo.movimiento.MovimientoArriba;
+import edu.fiuba.algo3.modelo.movimiento.MovimientoDerecha;
+import edu.fiuba.algo3.modelo.movimiento.MovimientoIzquierda;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;

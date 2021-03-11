@@ -2,10 +2,6 @@ package edu.fiuba.algo3.interfaz.vista.botoneras;
 
 import edu.fiuba.algo3.interfaz.ObservadorSectorAlgoritmo;
 import edu.fiuba.algo3.interfaz.controladores.ClearHandler;
-import edu.fiuba.algo3.interfaz.controladores.EjecucionAlgoritmoHandler;
-import edu.fiuba.algo3.interfaz.vista.SectorDibujo;
-import edu.fiuba.algo3.modelo.Personaje;
-import edu.fiuba.algo3.modelo.tablero.Dibujo;
 import javafx.scene.control.Button;
 import javafx.scene.layout.VBox;
 

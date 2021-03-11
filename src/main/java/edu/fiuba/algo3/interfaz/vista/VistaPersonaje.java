@@ -2,7 +2,6 @@ package edu.fiuba.algo3.interfaz.vista;
 
 import edu.fiuba.algo3.modelo.Observador;
 import edu.fiuba.algo3.modelo.Personaje;
-import edu.fiuba.algo3.modelo.tablero.Dibujo;
 import edu.fiuba.algo3.modelo.tablero.Posicion;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -17,8 +16,8 @@ public class VistaPersonaje implements Observador {
     public enum Direccion{ NORTE, SUR, ESTE, OESTE}
     private Direccion direccionActual;
     private Posicion posicionAnterior = new Posicion(0,0);
-    private SectorDibujo sectorDibujo;
-    private Rango rango;
+    private final SectorDibujo sectorDibujo;
+    private final Rango rango;
 
     private static final String PERSONAJE_DERECHA = "file:src/main/java/edu/fiuba/algo3/interfaz/imagenes/personajeRight.png";
     private static final String PERSONAJE_IZQUIERDA = "file:src/main/java/edu/fiuba/algo3/interfaz/imagenes/personajeLeft.png";

@@ -1,6 +1,6 @@
 package edu.fiuba.algo3.interfaz.vista.botoneras;
 
-import edu.fiuba.algo3.ContenedorRepeticion;
+import edu.fiuba.algo3.interfaz.vista.contenedores.ContenedorRepeticion;
 import edu.fiuba.algo3.interfaz.controladores.HabilidadDragHandler;
 import edu.fiuba.algo3.interfaz.controladores.botones.ControladorBoton;
 import edu.fiuba.algo3.interfaz.vista.SectorAlgoritmo;
@@ -22,7 +22,6 @@ public class BotonRepeticion extends BotonBloque {
     ControladorBoton controladorBoton;
 
     public BotonRepeticion(String nombre_boton, String icono, ControladorBoton controlador) {
-//        super(nombre_boton);
         this.controladorBoton = controlador;
         this.nombre = nombre_boton;
         this.icono = icono;
@@ -43,7 +42,7 @@ public class BotonRepeticion extends BotonBloque {
     public void crearBloqueEnSectorAlgoritmo(SectorAlgoritmo sector, VBox contenedor, SectorBloquesDisponibles sectorBloquesDisponibles) {
         BotonRepeticion boton = new BotonRepeticion(this.nombre, this.icono, this.controladorBoton);
         boton.setOnDragDetected(null); // no se mueve
-        //boton.setOnMouseClicked(new MenuContextoHandler(boton, sector, contenedor, sectorBloquesDisponibles));
+
         ContenedorRepeticion contenedorRepeticion = new ContenedorRepeticion(boton, contenedor, sectorBloquesDisponibles, sector);
 
         sectorBloquesDisponibles.notificarObservador(contenedor);
@@ -52,7 +51,6 @@ public class BotonRepeticion extends BotonBloque {
     public void crearBloqueAdentroDeUnContenedor(SectorAlgoritmo sector, VBox contenedor, SectorBloquesDisponibles sectorBloquesDisponibles, BotonBloque creador) {
         BotonRepeticion boton = new BotonRepeticion(this.nombre, this.icono, this.controladorBoton);
         boton.setOnDragDetected(null); // no se mueve
-        //boton.setOnMouseClicked(new MenuContextoEnContenedorHandler(boton, sector, contenedor, sectorBloquesDisponibles, creador));
 
         ContenedorRepeticion contenedorRepeticion = new ContenedorRepeticion(boton, contenedor, sectorBloquesDisponibles, sector);
 
@@ -61,19 +59,9 @@ public class BotonRepeticion extends BotonBloque {
 
         contenedor.setMinSize( tamanio_x + 50, tamanio_y + 45 );
         contenedor.setPrefSize( tamanio_x + 50, tamanio_y + 45 );
-
-        creador.notificarObservador(0, 45, 0);
     }
 
     public Bloque obtenerBloque(ObservableList<Node> hijos) {
         return controladorBoton.obtenerAccion(hijos);
-    }
-
-    public void agregarObservador(ContenedorRepeticion obs) {
-
-    }
-
-    public void notificarObservador(double x, double y, int hijos) {
-
     }
 }

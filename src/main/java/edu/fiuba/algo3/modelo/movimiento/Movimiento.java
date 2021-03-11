@@ -1,4 +1,4 @@
-package edu.fiuba.algo3.modelo.tablero.movimiento;
+package edu.fiuba.algo3.modelo.movimiento;
 
 import edu.fiuba.algo3.modelo.tablero.Posicion;
 

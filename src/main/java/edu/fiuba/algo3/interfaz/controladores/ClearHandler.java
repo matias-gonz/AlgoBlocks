@@ -1,26 +1,15 @@
 package edu.fiuba.algo3.interfaz.controladores;
 
-import edu.fiuba.algo3.interfaz.ContenedorAlgoritmo;
-import edu.fiuba.algo3.interfaz.ContenedorBloque;
-import edu.fiuba.algo3.interfaz.vista.SectorDibujo;
+import edu.fiuba.algo3.interfaz.vista.contenedores.ContenedorAlgoritmo;
 import edu.fiuba.algo3.interfaz.vista.botoneras.BotonClear;
 import edu.fiuba.algo3.interfaz.vista.botoneras.BotonEjecutar;
-import edu.fiuba.algo3.modelo.Personaje;
-import edu.fiuba.algo3.modelo.bloques.Bloque;
-import edu.fiuba.algo3.modelo.tablero.Dibujo;
-import javafx.animation.KeyFrame;
-import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
-import javafx.util.Duration;
 
 import java.io.File;
-import java.util.ArrayList;
-import java.util.concurrent.atomic.AtomicInteger;
 
 public class ClearHandler implements EventHandler<ActionEvent> {
 
@@ -33,7 +22,6 @@ public class ClearHandler implements EventHandler<ActionEvent> {
         this.botonClear = botonClear;
         this.botonEjecutar = botonEjecutar;
     }
-
 
     @Override
     public void handle(ActionEvent actionEvent) {

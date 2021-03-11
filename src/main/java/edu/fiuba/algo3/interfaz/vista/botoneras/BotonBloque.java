@@ -1,6 +1,5 @@
 package edu.fiuba.algo3.interfaz.vista.botoneras;
 
-import edu.fiuba.algo3.ContenedorRepeticion;
 import edu.fiuba.algo3.interfaz.vista.SectorAlgoritmo;
 import edu.fiuba.algo3.interfaz.vista.SectorBloquesDisponibles;
 import edu.fiuba.algo3.modelo.bloques.Bloque;
@@ -17,8 +16,4 @@ public abstract class BotonBloque extends Button {
     public abstract void crearBloqueAdentroDeUnContenedor(SectorAlgoritmo sector, VBox contenedor, SectorBloquesDisponibles sectorBloquesDisponibles, BotonBloque creador);
 
     public abstract Bloque obtenerBloque(ObservableList<Node> hijos);
-
-    public abstract void agregarObservador(ContenedorRepeticion obs);
-
-    public abstract void notificarObservador(double x, double y, int hijos);
 }

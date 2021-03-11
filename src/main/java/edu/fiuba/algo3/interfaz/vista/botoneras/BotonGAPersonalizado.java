@@ -1,6 +1,6 @@
 package edu.fiuba.algo3.interfaz.vista.botoneras;
 
-import edu.fiuba.algo3.interfaz.ContenedorBloque;
+import edu.fiuba.algo3.interfaz.vista.contenedores.ContenedorBloque;
 import edu.fiuba.algo3.interfaz.vista.SectorBloquesDisponibles;
 import javafx.geometry.Insets;
 import javafx.scene.Node;
@@ -39,15 +39,11 @@ public class BotonGAPersonalizado extends Button {
         contenedorBloques.addAll(contenedorAlgoritmo.getChildren());
 
         // con esto evitamos que los bloques del algoritmo guardado no se puedan borrar.
-        contenedorBloques.forEach( contenedor -> {
-            ((ContenedorBloque) contenedor).getChildren().get(0).setOnMouseClicked(null);
-        });
+        contenedorBloques.forEach( contenedor -> ((ContenedorBloque) contenedor).getChildren().get(0).setOnMouseClicked(null) );
 
         this.botonera = sector;
 
-        System.out.println("CREACION : " + this.contenedorBloques.size());
         contenedorAlgoritmo.getChildren().clear();
-        System.out.println("POST CLEAR : " + this.contenedorBloques.size());
 
         this.setOnMouseClicked(e -> {
             contenedorAlgoritmo.getChildren().clear();

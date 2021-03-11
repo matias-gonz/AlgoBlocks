@@ -1,16 +1,14 @@
-package edu.fiuba.algo3.interfaz;
+package edu.fiuba.algo3.interfaz.controladores.MenuContexto;
 
-import edu.fiuba.algo3.ContenedorRepeticion;
+import edu.fiuba.algo3.interfaz.vista.contenedores.ContenedorBloque;
 import edu.fiuba.algo3.interfaz.vista.SectorAlgoritmo;
 import edu.fiuba.algo3.interfaz.vista.SectorBloquesDisponibles;
 import edu.fiuba.algo3.interfaz.vista.botoneras.BotonAB;
-import edu.fiuba.algo3.interfaz.vista.botoneras.BotonBloque;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.control.ContextMenu;
 import javafx.scene.control.MenuItem;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
@@ -28,7 +26,6 @@ public class EjecucionClickDerecho {
             contenedorBloque.getChildren().clear();
 
             // hay cambios, hay que decirle al sector bloques disponibles
-            System.out.println("resolucionClickDerecho: " + contenedorSectorAlgoritmo.getChildren().size());
             sectorBloquesDisponibles.notificarObservador(contenedorSectorAlgoritmo);
 
             this.reproducirSonido();
@@ -43,13 +40,10 @@ public class EjecucionClickDerecho {
             double tamanio_x = contenedorMadre.getPrefWidth();
             double tamanio_y = contenedorMadre.getPrefHeight();
 
-            //contenedorMadre.setMaxSize( tamanio_x , tamanio_y - 60 );
             contenedorMadre.setMinSize( tamanio_x , tamanio_y - 60 );
             contenedorMadre.setPrefSize( tamanio_x , tamanio_y - 60 );
 
-            System.out.println("BORRE!");
             contenedorMadre.getChildren().remove(contenedorBloque);
-            //sectorBloquesDisponibles.notificarObservador(contenedorMadre); // notificamos los cambios pero acá salta la papa.
 
             this.reproducirSonido();
         });
@@ -60,10 +54,6 @@ public class EjecucionClickDerecho {
     {
         crearMenu(sectorAlgoritmo, mouseEvent, actionEvent -> {
             contenedorBloqueRepeticion.getChildren().clear();
-
-            // no hay cambios de tamaño ya que es un delete del sector algoritmo.
-            System.out.println("Este resolución click derecho llamé");
-            System.out.println(contenedorMadre.getChildren().size());
 
             if( contenedorMadre.getChildren().size() >= 2 )
             {
@@ -76,58 +66,6 @@ public class EjecucionClickDerecho {
 
             contenedorMadre.getChildren().remove(contenedorBloqueRepeticion);
             sectorBloquesDisponibles.notificarObservador(contenedorMadre);
-
-            this.reproducirSonido();
-        });
-    }
-
-    public void resolucionClickDerecho(HBox contenedor, VBox contenedorMadre, SectorAlgoritmo sector, MouseEvent mouseEvent, SectorBloquesDisponibles sectorBloquesDisponibles, BotonBloque creador)
-    {
-        crearMenu(sector, mouseEvent, actionEvent -> {
-            contenedor.getChildren().clear();
-            contenedorMadre.getChildren().remove(contenedor);
-
-            // hay cambios, hay que decirle al sector bloques disponibles
-            sectorBloquesDisponibles.notificarObservador(contenedorMadre);
-
-            creador.notificarObservador( -50, -45, -1 ); // lo achicamos!!
-
-            this.reproducirSonido();
-        });
-    }
-    /*public void resolucionClickDerecho(HBox contenedor, VBox contenedorMadre, SectorAlgoritmo sector, MouseEvent mouseEvent, SectorBloquesDisponibles sectorBloquesDisponibles, CreadorDeTipoDeBloque creador) {
-        crearMenu(sector, mouseEvent, actionEvent -> {
-            contenedor.getChildren().clear();
-            contenedorMadre.getChildren().remove(contenedor);
-
-            // hay cambios, hay que decirle al sector bloques disponibles
-            sectorBloquesDisponibles.notificarObservador(contenedorMadre);
-
-            creador.notificarObservador( -50, -45, -1 ); // lo achicamos!!
-
-            this.reproducirSonido();
-        });
-    }*/
-
-    public void resolucionClickDerecho(VBox contenedor, SectorAlgoritmo sector, MouseEvent mouseEvent, BotonBloque boton, SectorBloquesDisponibles sectorBloquesDisponibles) {
-        crearMenu(sector, mouseEvent, actionEvent -> {
-            contenedor.getChildren().remove(boton);
-
-            // hay cambios, hay que decirle al sector bloques disponibles
-            sectorBloquesDisponibles.notificarObservador(contenedor);
-
-            this.reproducirSonido();
-        });
-
-    }
-
-    public void resolucionClickDerecho(VBox contenedor, SectorAlgoritmo sector, MouseEvent mouseEvent, BotonBloque boton, SectorBloquesDisponibles sectorBloquesDisponibles, BotonBloque creador) {
-        crearMenu(sector, mouseEvent, actionEvent -> {
-            contenedor.getChildren().remove(boton);
-            creador.notificarObservador(0, -45, -1); // lo achicamos .
-
-            // hay cambios, hay que decirle al sector bloques disponibles
-            sectorBloquesDisponibles.notificarObservador(contenedor);
 
             this.reproducirSonido();
         });

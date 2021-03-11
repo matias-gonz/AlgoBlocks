@@ -1,12 +1,10 @@
 package edu.fiuba.algo3.interfaz.controladores.botones;
 
-import edu.fiuba.algo3.interfaz.ContenedorBloque;
+import edu.fiuba.algo3.interfaz.vista.contenedores.ContenedorBloque;
 import edu.fiuba.algo3.modelo.bloques.Bloque;
 import edu.fiuba.algo3.modelo.bloques.BloqueInversion;
-import edu.fiuba.algo3.modelo.bloques.BloqueRepeticion;
 import javafx.collections.ObservableList;
 import javafx.scene.Node;
-import javafx.scene.control.ComboBox;
 import javafx.scene.layout.VBox;
 
 import java.util.ArrayList;

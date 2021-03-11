@@ -1,10 +1,9 @@
 package edu.fiuba.algo3.interfaz.vista.botoneras;
 
-import edu.fiuba.algo3.ContenedorRepeticion;
-import edu.fiuba.algo3.interfaz.ContenedorBloque;
+import edu.fiuba.algo3.interfaz.vista.contenedores.ContenedorBloque;
 import edu.fiuba.algo3.interfaz.controladores.HabilidadDragHandler;
-import edu.fiuba.algo3.interfaz.controladores.MenuContextoEnContenedorHandler;
-import edu.fiuba.algo3.interfaz.controladores.MenuContextoHandler;
+import edu.fiuba.algo3.interfaz.controladores.MenuContexto.MenuContextoEnContenedorHandler;
+import edu.fiuba.algo3.interfaz.controladores.MenuContexto.MenuContextoHandler;
 import edu.fiuba.algo3.interfaz.controladores.botones.ControladorBoton;
 import edu.fiuba.algo3.interfaz.vista.SectorAlgoritmo;
 import edu.fiuba.algo3.interfaz.vista.SectorBloquesDisponibles;
@@ -26,7 +25,6 @@ public class BotonAB extends BotonBloque {
     ControladorBoton controladorBoton;
 
     public BotonAB(String nombre_boton, String icono, ControladorBoton controlador) {
-//        super(nombre_boton);
         this.controladorBoton = controlador;
         this.nombre = nombre_boton;
         this.icono = icono;
@@ -62,15 +60,11 @@ public class BotonAB extends BotonBloque {
         boton.setOnDragDetected(null); // no se mueve
         ContenedorBloque contenedorBloque = new ContenedorBloque();
 
-        //boton.setOnMouseClicked( new MenuContextoEnContenedorHandler(boton, sector, contenedorBloque, sectorBloquesDisponibles, creador) );
         boton.setOnMouseClicked( new MenuContextoEnContenedorHandler(boton, sector, contenedorBloque, contenedor, sectorBloquesDisponibles) );
 
         contenedorBloque.getChildren().add(boton);
         contenedorBloque.setAlignment(Pos.CENTER);
         contenedor.getChildren().add(contenedorBloque);
-
-        //creador.notificarObservador(0, 45, 0);
-        // acá podemos automaticamente auto-ajustar el tamaño.
 
         double tamanio_x = contenedor.getPrefWidth();
         double tamanio_y = contenedor.getPrefHeight();
@@ -82,13 +76,5 @@ public class BotonAB extends BotonBloque {
 
     public Bloque obtenerBloque(ObservableList<Node> hijos){
         return controladorBoton.obtenerAccion(hijos);
-    }
-
-    public void agregarObservador(ContenedorRepeticion obs){
-
-    }
-
-    public void notificarObservador(double x, double y, int hijos){
-
     }
 }

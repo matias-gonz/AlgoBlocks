@@ -13,12 +13,10 @@ import javafx.scene.layout.*;
 import java.util.ArrayList;
 
 public class SectorDibujo extends Pane implements ObservableSectorAlgoritmo {
-    private Personaje personaje;
-    private ImageView imagenPersonaje;
-    private VistaPersonaje vistaPersonaje;
+    private final Personaje personaje;
     private VistaLinea vistaLinea;
-    private Dibujo dibujo;
-    private ArrayList<ObservadorSectorAlgoritmo> observador;
+    private final Dibujo dibujo;
+    private final ArrayList<ObservadorSectorAlgoritmo> observador;
     BotonEjecutar boton;
     BotonClear botonClear;
 
@@ -28,7 +26,6 @@ public class SectorDibujo extends Pane implements ObservableSectorAlgoritmo {
         boton = new BotonEjecutar(personaje, this, dibujo);
         botonClear = new BotonClear(boton);
         this.setPrefSize(486,700);
-        //this.setMinWidth(487);
         this.setMaxHeight(500);
         this.setMinHeight(515);
         clean();
@@ -41,8 +38,8 @@ public class SectorDibujo extends Pane implements ObservableSectorAlgoritmo {
     }
 
     public void clean(){
-        imagenPersonaje = new ImageView( "file:src/main/java/edu/fiuba/algo3/interfaz/imagenes/personajeRight.png");
-        vistaPersonaje = new VistaPersonaje(imagenPersonaje, this, personaje);
+        ImageView imagenPersonaje = new ImageView("file:src/main/java/edu/fiuba/algo3/interfaz/imagenes/personajeRight.png");
+        VistaPersonaje vistaPersonaje = new VistaPersonaje(imagenPersonaje, this, personaje);
         vistaLinea = new VistaLinea(dibujo, this);
         BackgroundImage fondoImagen = new BackgroundImage(new Image("file:src/main/java/edu/fiuba/algo3/interfaz/imagenes/fondoSectorDibujo.png"),
                 BackgroundRepeat.REPEAT,BackgroundRepeat.REPEAT, BackgroundPosition.DEFAULT, BackgroundSize.DEFAULT);

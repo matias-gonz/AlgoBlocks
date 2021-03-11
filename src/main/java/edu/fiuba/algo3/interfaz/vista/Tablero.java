@@ -3,7 +3,7 @@ package edu.fiuba.algo3.interfaz.vista;
 import edu.fiuba.algo3.modelo.Personaje;
 import edu.fiuba.algo3.modelo.tablero.Dibujo;
 import javafx.geometry.Insets;
-import javafx.scene.control.ScrollPane;
+
 import javafx.scene.layout.Background;
 import javafx.scene.layout.BackgroundFill;
 import javafx.scene.layout.BorderPane;
@@ -14,8 +14,6 @@ import javafx.scene.paint.Color;
 public class Tablero extends BorderPane {
     private BarraDeMenu barraDeMenu;
     private SectorDibujo sectorDibujo;
-    private SectorBloquesDisponibles sectorBloques;
-    private SectorAlgoritmo sectorAlgoritmo;
     ScrollSector scrollBloques;
     ScrollSector scrollAlgoritmo;
 
@@ -43,10 +41,10 @@ public class Tablero extends BorderPane {
         Personaje personaje = new Personaje();
 
         sectorDibujo = new SectorDibujo(personaje, dibujo);
-        sectorBloques = new SectorBloquesDisponibles(sectorDibujo, personaje);
+        SectorBloquesDisponibles sectorBloques = new SectorBloquesDisponibles(sectorDibujo);
 
         // la conexión completa. sectorAlgoritmo tiene acceso a sector bloques y sector bloques tiene acceso a sector dibujo.
-        sectorAlgoritmo = new SectorAlgoritmo( sectorBloques );
+        SectorAlgoritmo sectorAlgoritmo = new SectorAlgoritmo(sectorBloques);
 
         scrollBloques = new ScrollSector(sectorBloques);
         scrollAlgoritmo = new ScrollSector(sectorAlgoritmo);

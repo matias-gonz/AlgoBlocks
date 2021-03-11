@@ -1,7 +1,6 @@
 package edu.fiuba.algo3.interfaz.vista;
 
-import edu.fiuba.algo3.interfaz.ContenedorAlgoritmo;
-import edu.fiuba.algo3.interfaz.ObservadorSectorAlgoritmo;
+import edu.fiuba.algo3.interfaz.vista.contenedores.ContenedorAlgoritmo;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.control.*;
@@ -9,14 +8,10 @@ import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 
-import java.util.ArrayList;
 
 public class SectorAlgoritmo extends VBox {
 
-    private ArrayList<ObservadorSectorAlgoritmo> observadores;
-
     public SectorAlgoritmo(SectorBloquesDisponibles sectorBloquesDisponibles){
-        this.observadores = new ArrayList<>();
         Label text = new Label("Espacio de Trabajo");
         text.setMaxWidth(Double.MAX_VALUE);
         text.setAlignment(Pos.CENTER);

@@ -21,7 +21,6 @@ public class BotonABGA extends Button implements ObservadorSectorAlgoritmo {
     public void cambios(VBox nuevoContenedor) {
         // esta acción va a ser llamada cuando tenga un bloque, por lo tanto no hay chances de la variable
         // sea null
-
         this.contenendorAlgoritmo = nuevoContenedor;
 
         this.setDisable( this.contenendorAlgoritmo.getChildren().size() == 0 ); // no tiene hijos...

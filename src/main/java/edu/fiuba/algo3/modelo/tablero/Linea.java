@@ -21,8 +21,4 @@ public class Linea {
     {
         return this.posFinal.obtenerCoordenadas();
     }
-
-    public void dibujar(){
-        //Cuando haya interfaz grafica
-    }
 }

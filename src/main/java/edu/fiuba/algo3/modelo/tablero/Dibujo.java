@@ -2,14 +2,14 @@ package edu.fiuba.algo3.modelo.tablero;
 
 import edu.fiuba.algo3.modelo.Observable;
 import edu.fiuba.algo3.modelo.Observador;
-import edu.fiuba.algo3.modelo.tablero.movimiento.Movimiento;
+import edu.fiuba.algo3.modelo.movimiento.Movimiento;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class Dibujo implements Observable {
     private List<Linea> lineas = new ArrayList<>();
-    private ArrayList<Observador> observador = new ArrayList<>();
+    private final ArrayList<Observador> observador = new ArrayList<>();
 
 
     public void agregarLinea(Movimiento movimiento, Posicion posicion) {
@@ -20,11 +20,6 @@ public class Dibujo implements Observable {
         notificarObservador();
     }
 
-    public void dibujar(){
-        for(Linea i : lineas){
-            i.dibujar();
-        }
-    }
 
     public List<Linea> obtenerSectorDibujado() {
         return lineas;
@@ -42,6 +37,6 @@ public class Dibujo implements Observable {
 
     @Override
     public void notificarObservador() {
-        this.observador.forEach( obs -> obs.update());
+        this.observador.forEach(Observador::update);
     }
 }

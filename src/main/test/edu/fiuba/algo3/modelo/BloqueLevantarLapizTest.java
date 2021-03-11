@@ -2,7 +2,7 @@ package edu.fiuba.algo3.modelo;
 
 import edu.fiuba.algo3.modelo.bloques.BloqueLevantarLapiz;
 import edu.fiuba.algo3.modelo.tablero.Dibujo;
-import edu.fiuba.algo3.modelo.tablero.movimiento.MovimientoArriba;
+import edu.fiuba.algo3.modelo.movimiento.MovimientoArriba;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;

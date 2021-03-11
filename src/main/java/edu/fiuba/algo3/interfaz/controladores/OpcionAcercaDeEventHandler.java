@@ -3,7 +3,6 @@ package edu.fiuba.algo3.interfaz.controladores;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.control.Alert;
-import javafx.scene.image.Image;
 
 public class OpcionAcercaDeEventHandler implements EventHandler<ActionEvent> {
 

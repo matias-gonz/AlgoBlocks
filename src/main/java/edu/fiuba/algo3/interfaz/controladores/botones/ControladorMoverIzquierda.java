@@ -2,7 +2,7 @@ package edu.fiuba.algo3.interfaz.controladores.botones;
 
 import edu.fiuba.algo3.modelo.bloques.Bloque;
 import edu.fiuba.algo3.modelo.bloques.BloqueMovimiento;
-import edu.fiuba.algo3.modelo.tablero.movimiento.MovimientoIzquierda;
+import edu.fiuba.algo3.modelo.movimiento.MovimientoIzquierda;
 import javafx.collections.ObservableList;
 import javafx.scene.Node;
 

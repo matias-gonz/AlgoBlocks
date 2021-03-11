@@ -6,7 +6,7 @@ import edu.fiuba.algo3.modelo.lapiz.LapizApoyado;
 import edu.fiuba.algo3.modelo.lapiz.LapizLevantado;
 import edu.fiuba.algo3.modelo.tablero.Dibujo;
 import edu.fiuba.algo3.modelo.tablero.Posicion;
-import edu.fiuba.algo3.modelo.tablero.movimiento.Movimiento;
+import edu.fiuba.algo3.modelo.movimiento.Movimiento;
 
 import java.util.ArrayList;
 import java.util.List;

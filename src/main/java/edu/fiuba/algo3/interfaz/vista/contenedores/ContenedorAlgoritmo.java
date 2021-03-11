@@ -1,4 +1,4 @@
-package edu.fiuba.algo3.interfaz;
+package edu.fiuba.algo3.interfaz.vista.contenedores;
 
 import edu.fiuba.algo3.interfaz.controladores.HabilidadAceptarDragHandler;
 import edu.fiuba.algo3.interfaz.controladores.HabilidadDropHandler;

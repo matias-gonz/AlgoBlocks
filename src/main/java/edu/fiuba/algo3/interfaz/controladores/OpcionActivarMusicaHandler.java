@@ -6,8 +6,8 @@ import javafx.scene.control.MenuItem;
 import javafx.scene.media.MediaPlayer;
 
 public class OpcionActivarMusicaHandler implements EventHandler<ActionEvent> {
-    private MenuItem opcion;
-    private MediaPlayer reproductor;
+    private final MenuItem opcion;
+    private final MediaPlayer reproductor;
     public OpcionActivarMusicaHandler(MediaPlayer mediaPlayer, MenuItem opcionToggle) {
         reproductor = mediaPlayer;
         opcion = opcionToggle;

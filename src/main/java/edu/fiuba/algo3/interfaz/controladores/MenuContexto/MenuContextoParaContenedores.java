@@ -1,7 +1,6 @@
-package edu.fiuba.algo3;
+package edu.fiuba.algo3.interfaz.controladores.MenuContexto;
 
-import edu.fiuba.algo3.interfaz.ContenedorBloque;
-import edu.fiuba.algo3.interfaz.EjecucionClickDerecho;
+import edu.fiuba.algo3.interfaz.vista.contenedores.ContenedorBloque;
 import edu.fiuba.algo3.interfaz.vista.SectorAlgoritmo;
 import edu.fiuba.algo3.interfaz.vista.SectorBloquesDisponibles;
 import javafx.event.EventHandler;

@@ -1,10 +1,8 @@
-package edu.fiuba.algo3.modelo.tablero.movimiento;
+package edu.fiuba.algo3.modelo.movimiento;
 
 import edu.fiuba.algo3.modelo.tablero.Posicion;
 
-import java.io.Serializable;
-
-public class MovimientoAbajo implements Movimiento, Serializable {
+public class MovimientoAbajo implements Movimiento {
 
     @Override
     public void mover(Posicion posicion) {

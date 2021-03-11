@@ -7,10 +7,10 @@ import edu.fiuba.algo3.modelo.bloques.BloqueRepeticion;
 import edu.fiuba.algo3.modelo.recursos.DBAlgoritmoPersonalizados;
 import edu.fiuba.algo3.modelo.tablero.Dibujo;
 import edu.fiuba.algo3.modelo.tablero.Posicion;
-import edu.fiuba.algo3.modelo.tablero.movimiento.MovimientoAbajo;
-import edu.fiuba.algo3.modelo.tablero.movimiento.MovimientoArriba;
-import edu.fiuba.algo3.modelo.tablero.movimiento.MovimientoDerecha;
-import edu.fiuba.algo3.modelo.tablero.movimiento.MovimientoIzquierda;
+import edu.fiuba.algo3.modelo.movimiento.MovimientoAbajo;
+import edu.fiuba.algo3.modelo.movimiento.MovimientoArriba;
+import edu.fiuba.algo3.modelo.movimiento.MovimientoDerecha;
+import edu.fiuba.algo3.modelo.movimiento.MovimientoIzquierda;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -75,7 +75,7 @@ class BloqueAlgoritmoPersonalizadoTest {
     public void test03SeCreaAlgoritmoPersonalizadoConBloqueInversion()
     {
         BloqueRepeticion bloqueRepeticion = new BloqueRepeticion( 2, Arrays.asList( bloqueMoverIzquierda, bloqueMoverArriba ) );
-        BloqueInversion bloqueInversion = new BloqueInversion(Arrays.asList(bloqueRepeticion));
+        BloqueInversion bloqueInversion = new BloqueInversion(Collections.singletonList(bloqueRepeticion));
 
         BloqueAlgoritmoPersonalizado bloqueGuardado = new BloqueAlgoritmoPersonalizado( dbAlgoritmosPersonalizados,
                 Collections.singletonList(bloqueInversion), "test03" );

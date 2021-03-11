@@ -1,7 +1,6 @@
 package edu.fiuba.algo3.interfaz.vista.botoneras;
 
-import edu.fiuba.algo3.ContenedorRepeticion;
-import edu.fiuba.algo3.interfaz.ContenedorInversion;
+import edu.fiuba.algo3.interfaz.vista.contenedores.ContenedorInversion;
 import edu.fiuba.algo3.interfaz.controladores.HabilidadDragHandler;
 import edu.fiuba.algo3.interfaz.controladores.botones.ControladorBoton;
 import edu.fiuba.algo3.interfaz.vista.SectorAlgoritmo;
@@ -23,7 +22,6 @@ public class BotonInversion extends BotonBloque {
     ControladorBoton controladorBoton;
 
     public BotonInversion(String nombre_boton, String icono, ControladorBoton controlador) {
-//        super(nombre_boton);
         this.controladorBoton = controlador;
         this.nombre = nombre_boton;
         this.icono = icono;
@@ -44,7 +42,7 @@ public class BotonInversion extends BotonBloque {
     public void crearBloqueEnSectorAlgoritmo(SectorAlgoritmo sector, VBox contenedor, SectorBloquesDisponibles sectorBloquesDisponibles) {
         BotonInversion boton = new BotonInversion(this.nombre, this.icono, this.controladorBoton);
         boton.setOnDragDetected(null); // no se mueve
-        //boton.setOnMouseClicked(new MenuContextoHandler(boton, sector, contenedor, sectorBloquesDisponibles));
+
         ContenedorInversion contenedorInversion = new ContenedorInversion(boton, contenedor, sectorBloquesDisponibles, sector);
         sectorBloquesDisponibles.notificarObservador(contenedor);
     }
@@ -52,7 +50,6 @@ public class BotonInversion extends BotonBloque {
     public void crearBloqueAdentroDeUnContenedor(SectorAlgoritmo sector, VBox contenedor, SectorBloquesDisponibles sectorBloquesDisponibles, BotonBloque creador) {
         BotonInversion boton = new BotonInversion(this.nombre, this.icono, this.controladorBoton);
         boton.setOnDragDetected(null); // no se mueve
-        //boton.setOnMouseClicked(new MenuContextoEnContenedorHandler(boton, sector, contenedor, sectorBloquesDisponibles, creador));
 
         ContenedorInversion contenedorInversion = new ContenedorInversion(boton, contenedor, sectorBloquesDisponibles, sector);
 
@@ -62,18 +59,10 @@ public class BotonInversion extends BotonBloque {
 
         contenedor.setMinSize( tamanio_x + 50, tamanio_y + 45 );
         contenedor.setPrefSize( tamanio_x + 50, tamanio_y + 45 );
-        //creador.notificarObservador(0, 45, 0);
     }
 
     public Bloque obtenerBloque(ObservableList<Node> hijos) {
         return controladorBoton.obtenerAccion(hijos);
     }
 
-    public void agregarObservador(ContenedorRepeticion obs) {
-
-    }
-
-    public void notificarObservador(double x, double y, int hijos) {
-
-    }
 }
