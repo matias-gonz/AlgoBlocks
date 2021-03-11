@@ -14,6 +14,7 @@ import javafx.scene.paint.Color;
 public class Tablero extends BorderPane {
     private BarraDeMenu barraDeMenu;
     private SectorDibujo sectorDibujo;
+    private SectorBloquesDisponibles sectorBloques;
     ScrollSector scrollBloques;
     ScrollSector scrollAlgoritmo;
 
@@ -41,7 +42,7 @@ public class Tablero extends BorderPane {
         Personaje personaje = new Personaje();
 
         sectorDibujo = new SectorDibujo(personaje, dibujo);
-        SectorBloquesDisponibles sectorBloques = new SectorBloquesDisponibles(sectorDibujo);
+        this.sectorBloques = new SectorBloquesDisponibles(sectorDibujo);
 
         // la conexión completa. sectorAlgoritmo tiene acceso a sector bloques y sector bloques tiene acceso a sector dibujo.
         SectorAlgoritmo sectorAlgoritmo = new SectorAlgoritmo(sectorBloques);
@@ -63,5 +64,7 @@ public class Tablero extends BorderPane {
     }
 
     public void mostrarInstrucciones() {this.barraDeMenu.mostrarInstrucciones();}
+
+    public void guardarAlgoritmo() {this.sectorBloques.guardarAlgoritmo();}
 }
 

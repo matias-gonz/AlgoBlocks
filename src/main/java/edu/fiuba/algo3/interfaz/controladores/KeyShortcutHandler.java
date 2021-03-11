@@ -26,6 +26,8 @@ public class KeyShortcutHandler implements EventHandler<KeyEvent> {
                 break;
             case I:
                 tablero.mostrarInstrucciones();
+            case G:
+                tablero.guardarAlgoritmo();
         }
     }
 }

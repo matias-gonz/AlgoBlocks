@@ -2,6 +2,7 @@ package edu.fiuba.algo3.interfaz.controladores;
 
 import edu.fiuba.algo3.interfaz.vista.SectorBloquesDisponibles;
 import edu.fiuba.algo3.interfaz.vista.botoneras.BotonGAPersonalizado;
+import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -9,23 +10,22 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
-public class BotonABGAClickHandler extends Stage implements EventHandler<MouseEvent> {
+public class BotonABGAHandler extends Stage implements EventHandler<ActionEvent> {
 
     VBox contenendorAlgoritmo;
     SectorBloquesDisponibles botoneraSectorBloquesDisponibles;
 
-    public BotonABGAClickHandler(VBox contenendorAlgoritmo, SectorBloquesDisponibles botoneraSectorBloquesDisponibles) {
+    public BotonABGAHandler(VBox contenendorAlgoritmo, SectorBloquesDisponibles botoneraSectorBloquesDisponibles) {
         this.contenendorAlgoritmo = contenendorAlgoritmo;
         this.botoneraSectorBloquesDisponibles = botoneraSectorBloquesDisponibles;
     }
 
     @Override
-    public void handle(MouseEvent mouseEvent) {
+    public void handle(ActionEvent actionEvent) {
         Label informacion = new Label("Ingrese un nombre al algoritmo a guardar");
         TextField texto = new TextField();
         Button aceptar = new Button("Aceptar");

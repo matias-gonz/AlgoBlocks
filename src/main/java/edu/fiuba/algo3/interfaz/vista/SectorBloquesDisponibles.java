@@ -88,4 +88,8 @@ public class SectorBloquesDisponibles extends VBox implements ObservableSectorAl
         // notificamos al sector dibujo.
         this.sectorDibujo.notificarObservador(nuevoContenedor);
     }
+
+    public void guardarAlgoritmo() {
+        ((BotonABGA)this.getChildren().get(9)).fire();
+    }
 }
