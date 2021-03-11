@@ -22,7 +22,6 @@ public class ContenedorRepeticion  {
     double TAMANIO_Y = 70;
 
     public ContenedorRepeticion(BotonRepeticion botonRepeticion, VBox contenedor, SectorBloquesDisponibles sectorBloquesDisponibles, SectorAlgoritmo sector) {
-        //item.setId(nombre);
 
         contenedorAEjecutar.setPrefSize( TAMANIO_X, TAMANIO_Y );
         contenedorAEjecutar.setAlignment( Pos.TOP_CENTER );

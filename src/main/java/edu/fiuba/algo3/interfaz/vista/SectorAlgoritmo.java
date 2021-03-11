@@ -21,6 +21,7 @@ public class SectorAlgoritmo extends VBox {
         this.getChildren().add(text);
 
         ContenedorAlgoritmo contenedorAlgoritmo = new ContenedorAlgoritmo(400, 900, Pos.TOP_CENTER, this, sectorBloquesDisponibles );
+        contenedorAlgoritmo.setId("Sector");
 
         this.getChildren().add(contenedorAlgoritmo);
 

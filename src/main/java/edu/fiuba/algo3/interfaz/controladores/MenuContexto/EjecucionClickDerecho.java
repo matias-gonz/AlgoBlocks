@@ -20,6 +20,8 @@ public class EjecucionClickDerecho {
     public void resolucionClickDerecho(ContenedorBloque contenedorBloque, SectorAlgoritmo sector, MouseEvent mouseEvent, SectorBloquesDisponibles sectorBloquesDisponibles, VBox contenedorSectorAlgoritmo)
     {
         crearMenu(sector, mouseEvent, actionEvent -> {
+
+            System.out.println("hola");
             contenedorSectorAlgoritmo.getChildren().remove(contenedorBloque);// borramos el bloque del contenedor sector algoritmo
 
             contenedorBloque.getChildren().clear();
@@ -34,6 +36,7 @@ public class EjecucionClickDerecho {
     // resolución click derecho en un contenedor de un botón comun!
     public void resolucionClickDerecho(SectorAlgoritmo sector, ContenedorBloque contenedorBloque, VBox contenedorMadre, MouseEvent mouseEvent) {
         crearMenu(sector, mouseEvent, actionEvent -> {
+
             contenedorBloque.getChildren().clear();
 
             double tamanio_x = contenedorMadre.getPrefWidth();
@@ -54,7 +57,7 @@ public class EjecucionClickDerecho {
         crearMenu(sectorAlgoritmo, mouseEvent, actionEvent -> {
             contenedorBloqueRepeticion.getChildren().clear();
 
-            if( contenedorMadre.getChildren().size() >= 2 )
+            if( contenedorMadre.getChildren().size() >= 2 && (contenedorMadre.getId().equals("Sector")))
             {
                 double tamanio_x = contenedorMadre.getPrefWidth();
                 double tamanio_y = contenedorMadre.getPrefHeight();
