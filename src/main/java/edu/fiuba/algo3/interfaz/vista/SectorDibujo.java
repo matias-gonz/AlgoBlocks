@@ -6,6 +6,7 @@ import edu.fiuba.algo3.interfaz.vista.botoneras.BotonClear;
 import edu.fiuba.algo3.interfaz.vista.botoneras.BotonEjecutar;
 import edu.fiuba.algo3.modelo.Personaje;
 import edu.fiuba.algo3.modelo.tablero.Dibujo;
+import javafx.scene.Node;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
@@ -65,10 +66,20 @@ public class SectorDibujo extends Pane implements ObservableSectorAlgoritmo {
     }
 
     public void ejecutarBloques() {
-        ((BotonEjecutar) this.getChildren().get(1)).fire();
+        for( Node i : this.getChildren()){
+            if(i instanceof BotonEjecutar){
+                ((BotonEjecutar) i).fire();
+            }
+        }
+
+
     }
 
     public void clearBloques() {
-        ((BotonClear) this.getChildren().get(2)).fire();
+        for( Node i : this.getChildren()){
+            if(i instanceof BotonClear){
+                ((BotonClear) i).fire();
+            }
+        }
     }
 }
