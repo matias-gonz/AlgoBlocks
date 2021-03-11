@@ -24,6 +24,8 @@ public class KeyShortcutHandler implements EventHandler<KeyEvent> {
             case D:
                 tablero.clearBloques();
                 break;
+            case I:
+                tablero.mostrarInstrucciones();
         }
     }
 }

@@ -44,4 +44,8 @@ public class BarraDeMenu extends MenuBar {
     public void toggleMusic() {
         this.getMenus().get(2).getItems().get(0).fire();
     }
+
+    public void mostrarInstrucciones() {
+        this.getMenus().get(1).getItems().get(0).fire();
+    }
 }
