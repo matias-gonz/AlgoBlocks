@@ -10,11 +10,13 @@ public class SliderVelocidad extends Slider {
         this.setPrefWidth(212);
 
         this.setMin(0);
-        this.setMax(5);
+        this.setMax(1.99);
+        this.setValue(1.5);
+        this.setStyle("-fx-background-color: #ff9900;" +
+                "-fx-padding: 0.3em;");
     }
 
     public Double obtenerVelocidad() {
-        System.out.println(this.getValue());
-        return this.getValue();
+        return (2- this.getValue());
     }
 }

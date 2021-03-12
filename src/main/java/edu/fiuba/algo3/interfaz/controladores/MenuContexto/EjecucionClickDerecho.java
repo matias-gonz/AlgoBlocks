@@ -21,7 +21,6 @@ public class EjecucionClickDerecho {
     {
         crearMenu(sector, mouseEvent, actionEvent -> {
 
-            System.out.println("hola");
             contenedorSectorAlgoritmo.getChildren().remove(contenedorBloque);// borramos el bloque del contenedor sector algoritmo
 
             contenedorBloque.getChildren().clear();

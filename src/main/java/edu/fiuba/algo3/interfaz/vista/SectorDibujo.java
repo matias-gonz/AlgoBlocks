@@ -29,7 +29,9 @@ public class SectorDibujo extends Pane implements ObservableSectorAlgoritmo {
         boton = new BotonEjecutar(personaje, this, dibujo,slider);
         botonClear = new BotonClear(boton);
 
-
+        ImageView iconFast = new ImageView("file:src/main/java/edu/fiuba/algo3/interfaz/imagenes/fast.png");
+        ImageView iconSlow = new ImageView("file:src/main/java/edu/fiuba/algo3/interfaz/imagenes/slow.png");
+        inicializarImagenes(iconFast,iconSlow);
 
         this.setPrefSize(486,700);
         this.setMaxHeight(500);
@@ -41,7 +43,18 @@ public class SectorDibujo extends Pane implements ObservableSectorAlgoritmo {
         this.getChildren().add( boton );
         this.agregarObservador( botonClear);
         this.getChildren().add( botonClear );
-        this.getChildren().add( slider );
+        this.getChildren().addAll( slider ,iconFast,iconSlow);
+    }
+
+    private void inicializarImagenes(ImageView iconFast, ImageView iconSlow) {
+        iconFast.setLayoutX(-30);
+        iconFast.setLayoutY(295);
+        iconFast.setScaleX(0.08);
+        iconFast.setScaleY(0.08);
+        iconSlow.setLayoutX(-115);
+        iconSlow.setLayoutY(280);
+        iconSlow.setScaleX(0.06);
+        iconSlow.setScaleY(0.06);
     }
 
     public void clean(){
