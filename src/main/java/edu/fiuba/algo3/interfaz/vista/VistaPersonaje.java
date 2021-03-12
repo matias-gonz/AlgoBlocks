@@ -13,8 +13,6 @@ public class VistaPersonaje implements Observador {
     private static final int ESCALAR = 30;
     private final ImageView imagenPersonaje;
     private final Personaje personaje;
-    public enum Direccion{ NORTE, SUR, ESTE, OESTE}
-    private Direccion direccionActual;
     private Posicion posicionAnterior = new Posicion(0,0);
     private final SectorDibujo sectorDibujo;
     private final Rango rango;
@@ -29,31 +27,12 @@ public class VistaPersonaje implements Observador {
         this.imagenPersonaje = imagenPersonaje;
         this.sectorDibujo = sectorDibujo;
         this.rango = new Rango();
-        this.setDireccionActual(VistaPersonaje.Direccion.ESTE);
         imagenPersonaje.setX(POS_INICIAL_CENTER_X);
         imagenPersonaje.setY(POS_INICIAL_CENTER_Y);
         imagenPersonaje.setFitHeight(35);
         imagenPersonaje.setFitWidth(30);
         this.personaje.agregarObservador(this);
         sectorDibujo.getChildren().add(imagenPersonaje);
-    }
-
-    public void girarPersonaje() {
-        actualizarDireccion();
-        switch (direccionActual){
-            case NORTE:
-                imagenPersonaje.setImage(new Image(PERSONAJE_ARRIBA));
-                break;
-            case SUR:
-                imagenPersonaje.setImage(new Image(PERSONAJE_ABAJO));
-                break;
-            case ESTE:
-                imagenPersonaje.setImage(new Image(PERSONAJE_DERECHA));
-                break;
-            case OESTE:
-                imagenPersonaje.setImage(new Image(PERSONAJE_IZQUIERDA));
-        }
-
     }
 
     public void update(){
@@ -65,24 +44,20 @@ public class VistaPersonaje implements Observador {
         verificarFueraDeRango();
     }
 
-    public void setDireccionActual(VistaPersonaje.Direccion dir){
-        direccionActual = dir;
-    }
-
-    public void actualizarDireccion(){
+    public void girarPersonaje(){
         int anteriorX = posicionAnterior.obtenerCoordenadas().get(0);
         int anteriorY = posicionAnterior.obtenerCoordenadas().get(1);
         int actualX = personaje.obtenerPosicion().get(0);
         int actualY = personaje.obtenerPosicion().get(1);
 
         if(anteriorY < actualY){
-            this.setDireccionActual(VistaPersonaje.Direccion.NORTE);
+            imagenPersonaje.setImage(new Image(PERSONAJE_ARRIBA));
         }else if (anteriorY > actualY){
-            this.setDireccionActual(VistaPersonaje.Direccion.SUR);
+            imagenPersonaje.setImage(new Image(PERSONAJE_ABAJO));
         }else if ( anteriorX < actualX){
-            this.setDireccionActual(VistaPersonaje.Direccion.ESTE);
+            imagenPersonaje.setImage(new Image(PERSONAJE_DERECHA));
         }else if( anteriorX > actualX){
-            this.setDireccionActual(VistaPersonaje.Direccion.OESTE);
+            imagenPersonaje.setImage(new Image(PERSONAJE_IZQUIERDA));
         }
 
         posicionAnterior = new Posicion(personaje.obtenerPosicion());
